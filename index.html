@@ -2,14 +2,139 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Próximamente</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEROFIVE | Gateway</title>
+    <!-- Importación de Montserrat con pesos más legibles: 400 (Regular) y 500 (Medium) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: sans-serif; text-align: center; padding: 50px; background: #f4f4f4; }
-        h1 { color: #333; }
+        :root {
+            --primary: #2ecc71; 
+            --dark: #1a1a1a;
+            --white: #ffffff;
+        }
+
+        body, html { 
+            height: 100%; 
+            margin: 0; 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--dark);
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Logotipo centralizado según el estilo del Dossier [3] */
+        .logo {
+            max-width: 380px;
+            height: auto;
+            margin-bottom: 70px;
+        }
+
+        /* Selector de idiomas con banderas [1, 3] */
+        .flag-selector {
+            display: flex;
+            gap: 90px;
+            align-items: center;
+        }
+
+        .flag-box {
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark);
+            transition: 0.3s ease;
+        }
+
+        .flag-box:hover {
+            transform: scale(1.05);
+        }
+
+        .flag-box img {
+            width: 150px;
+            height: auto;
+            display: block;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            border: 1px solid #f0f0f0;
+        }
+
+        .flag-box span {
+            font-size: 0.9rem;
+            font-weight: 500; /* Peso Medium para legibilidad */
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Footer institucional con contacto */
+        .footer-gate {
+            position: absolute;
+            bottom: 40px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer-gate p {
+            font-size: 0.8rem;
+            font-weight: 400; /* Peso Regular */
+            letter-spacing: 3px;
+            margin: 5px 0;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        .contact-bar {
+            margin-top: 15px;
+            font-size: 0.85rem;
+        }
+
+        .contact-bar a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        .line {
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary);
+            margin: 15px auto;
+        }
     </style>
 </head>
 <body>
-    <h1>¡Estamos trabajando en nuestra nueva web!</h1>
-    <p>Muy pronto estaremos en línea. Gracias por tu paciencia.</p>
+
+    <!-- Logotipo Principal AEROFIVE [4] -->
+    <img src="Aerofive logo.png" alt="AEROFIVE" class="logo">
+
+    <!-- Selector de Idioma (Banderas China y España) [1, 3] -->
+    <div class="flag-selector">
+        
+        <a href="chino.html" class="flag-box">
+            <img src="china.png" alt="中文版">
+            <span>CHINESE</span>
+        </a>
+
+        <a href="espanol.html" class="flag-box">
+            <img src="espana.png" alt="Español">
+            <span>ESPAÑOL</span>
+        </a>
+
+    </div>
+
+    <!-- Pie de página con contacto y referencia de cooperación [3] -->
+    <div class="footer-gate">
+        <div class="line"></div>
+        <p>Proyecto de Cooperación Industrial China-España</p>
+        
+        <div class="contact-bar">
+            <a href="mailto:info@josetarifa.es"><i class="fas fa-envelope"></i> info@josetarifa.es</a>
+            <a href="tel:+34656335105"><i class="fas fa-phone"></i> +34 656 335 105</a>
+        </div>
+    </div>
+
 </body>
 </html>
