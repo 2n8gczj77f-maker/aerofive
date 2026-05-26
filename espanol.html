@@ -7,220 +7,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #83e31c; 
-            --dark: #1a1a1a;
-            --light: #ffffff;
-            --gray-bg: #f9f9f9;
-        }
+        :root { --primary: #83e31c; --dark: #1a1a1a; --white: #ffffff; --gray: #f9f9f9; }
+        
+        body { font-family: 'Montserrat', sans-serif; font-weight: 300; margin: 0; color: var(--dark); line-height: 1.6; }
+        h2, h3 { font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
 
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 300; margin: 0; 
-            background-color: var(--light); 
-            color: var(--dark); 
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h2, h3 { font-weight: 400 !important; letter-spacing: 1px; text-transform: uppercase; }
-
-        /* HERO: Escritorio */
+        /* HERO ADAPTABLE */
         .hero { 
-            background-image: url("exposicion hovercraft.png"); 
-            background-size: 100% auto;
-            background-repeat: no-repeat;
-            background-position: center top;
-            width: 100%; height: 0;
-            padding-top: 42%; 
-            display: block;
-            background-color: var(--light);
+            width: 100%; height: auto; min-height: 400px;
+            background-image: url("exposicion hovercraft.png");
+            background-size: cover; background-position: center;
+            aspect-ratio: 21 / 9;
         }
 
-        /* AJUSTE PARA MÓVIL: Imagen de portada corregida */
         @media (max-width: 768px) {
-            .hero {
-                background-image: url("movil portada ES.jpg") !important; 
-                background-size: contain !important; 
-                background-repeat: no-repeat !important;
-                background-position: center top !important;
-                padding-top: 178% !important; 
-                background-color: #f6f6f6 !important; 
-            }
+            .hero { background-image: url("movil portada ES.jpg"); aspect-ratio: 9 / 16; }
         }
 
-        .container { max-width: 1200px; margin: auto; padding: 4rem 2rem; }
-        
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { 
-            font-size: 2.2rem; 
-            border-bottom: 4px solid var(--primary); 
-            display: inline-block; 
-            padding-bottom: 12px;
-        }
+        .container { max-width: 1100px; margin: auto; padding: 4rem 2rem; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 10px; }
 
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .gallery-item { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .gallery-item img { width: 100%; height: 260px; object-fit: cover; }
-        .gallery-caption { padding: 20px; text-align: center; font-weight: 400; font-size: 0.9rem; }
+        /* GALERÍA SUPERIOR */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .gallery-item { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.05); text-align: center; }
+        .gallery-item img { width: 100%; height: auto; display: block; }
+        .gallery-caption { padding: 15px; font-size: 0.85rem; font-weight: 500; }
 
-        .content-section { padding: 8rem 0; border-top: 1px solid #eee; }
-        .bg-gray { background-color: var(--gray-bg); }
-        
-        /* Layout Base para Secciones */
-        .feature-grid { 
-            display: grid; 
-            grid-template-columns: 42% 58%; 
-            gap: 60px; 
-            align-items: center; 
-        }
+        /* SECCIONES DE CARACTERÍSTICAS */
+        .content-block { padding: 5rem 0; border-top: 1px solid #eee; }
+        .bg-gray { background: var(--gray); }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
 
-        /* Ajustes de Texto */
-        .feature-text h2 { margin-bottom: 1.5rem; font-size: 1.8rem; }
-        .feature-text h3 { color: var(--dark); margin-top: 2rem; border-left: 4px solid var(--primary); padding-left: 20px; font-size: 1.1rem; }
-        .feature-list { list-style: none; padding: 0; margin-top: 25px; }
-        .feature-list li { margin-bottom: 20px; display: flex; align-items: flex-start; font-size: 1rem; }
-        .feature-list i { color: var(--primary); margin-right: 15px; margin-top: 6px; font-size: 0.9rem; }
-        .no-break { white-space: nowrap; font-weight: 500; color: var(--dark); }
+        .image-container { width: 100%; }
+        .image-container img { width: 100%; height: auto; border-radius: 12px; display: block; box-shadow: 0 8px 25px rgba(0,0,0,0.05); }
+        .photo-label { text-align: center; font-size: 0.75rem; letter-spacing: 1px; margin-top: 15px; color: #666; text-transform: uppercase; }
 
-        /* Contenedores de Renders con Zoom */
-        .image-stack { display: flex; flex-direction: column; gap: 40px; }
-        .render-container { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
-        
-        .render-box { position: relative; overflow: hidden; height: 320px; }
-        .render-box img { 
-            width: 155%; 
-            margin-left: -27%; 
-            margin-top: -5%;
-            display: block;
-        }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { margin-bottom: 15px; display: flex; align-items: flex-start; }
+        .feature-list i { color: var(--primary); margin-right: 12px; margin-top: 5px; }
 
-        .photo-caption { 
-            background: #fdfdfd; padding: 15px; text-align: center; 
-            font-size: 0.8rem; font-weight: 500; letter-spacing: 2px; 
-            color: var(--dark); border-top: 1px solid #f0f0f0; text-transform: uppercase;
-        }
+        /* PIE DE PÁGINA */
+        .footer { background: #000; color: #fff; text-align: center; padding: 4rem 2rem; }
+        .footer img { max-width: 140px; margin-bottom: 20px; }
+        .contact-link { color: var(--primary); text-decoration: none; font-weight: 500; }
 
-        /* MURO TECNOLÓGICO */
-        .muro-summary { text-align: center; padding: 7rem 2rem; }
-        .muro-link { color: var(--dark); font-weight: 500; text-decoration: none; border: 2px solid var(--primary); padding: 16px 50px; border-radius: 4px; transition: 0.3s; display: inline-block; letter-spacing: 2px; }
-        .muro-link:hover { background: var(--primary); }
-
-        .footer { background: #000; color: white; text-align: center; padding: 6rem 2rem; }
-        .footer img.logo-small { max-width: 150px; margin-bottom: 30px; }
-        .contact-info a { color: var(--primary); text-decoration: none; font-weight: 500; }
-
-        /* RESPONSIVO GENERAL */
-        @media (max-width: 992px) { 
-            .feature-grid { grid-template-columns: 1fr !important; gap: 40px; }
-            .render-box { height: auto; }
-            .render-box img { width: 100%; margin-left: 0; margin-top: 0; }
-            .section-title h2 { font-size: 1.8rem; }
+        /* MÓVIL: APILADO Y ORDEN */
+        @media (max-width: 900px) {
+            .feature-grid { grid-template-columns: 1fr; gap: 30px; }
+            .mobile-first { order: -1; } /* Sube la imagen arriba en móvil si quieres */
+            .horizon-order-1 { order: 1; }
+            .horizon-order-2 { order: 2; }
+            .horizon-order-3 { order: 3; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Hero: Imagen Principal -->
     <section class="hero"></section>
 
     <div class="container">
-        <!-- Compact Section -->
-        <section>
-            <div class="section-title">
-                <h2>AEROFIVE Compact</h2>
-                <p>Ingeniería de vanguardia para la movilidad eléctrica anfibia de 5 plazas.</p>
-            </div>
-            <div class="gallery">
-                <div class="gallery-item"><img src="completo1.JPG" alt="Frontal"><div class="gallery-caption">PLATAFORMA MODULAR P1-P8</div></div>
-                <div class="gallery-item"><img src="Hovercraft 5 saliendo del agua 2.jpg" alt="Acción"><div class="gallery-caption">DESEMPEÑO EN ENTORNO REAL</div></div>
-                <div class="gallery-item"><img src="completo1trasera.JPG" alt="Trasera"><div class="gallery-caption">EFICIENCIA ENERGÉTICA P8</div></div>
-            </div>
-        </section>
+        <div class="section-title"><h2>AEROFIVE Compact</h2></div>
+        <div class="gallery">
+            <div class="gallery-item"><img src="completo1.JPG"><div class="gallery-caption">PLATAFORMA MODULAR</div></div>
+            <div class="gallery-item"><img src="Hovercraft 5 saliendo del agua 2.jpg"><div class="gallery-caption">DESEMPEÑO REAL</div></div>
+            <div class="gallery-item"><img src="completo1trasera.JPG"><div class="gallery-caption">VECTORIZACIÓN P8</div></div>
+        </div>
     </div>
 
     <!-- Innovación y Acceso -->
-    <section class="content-section bg-gray">
+    <section class="content-block bg-gray">
         <div class="container">
             <div class="feature-grid">
-                <div class="feature-text">
-                    <h2>Innovación y Acceso Premium</h2>
-                    <p>AEROFIVE redefine la experiencia mediante soluciones que integran estética vanguardista y funcionalidad superior.</p>
-                    <h3>Propulsión Digital Distribuida</h3>
-                    <p>Nuestra <strong>Patente 3</strong> sustituye los sistemas ruidosos por una red de empuje eléctrica silenciosa.</p>
-                    <h3>Sistemas de Apertura Icónicos</h3>
+                <div>
+                    <h2>Innovación y Acceso</h2>
+                    <p>AEROFIVE redefine la experiencia mediante soluciones de ingeniería exclusivas.</p>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <span><strong class="no-break">Cabina Deslizante:</strong> Cúpula frontal de desplazamiento suave para visibilidad total.</span></li>
-                        <li><i class="fas fa-check"></i> <span><strong class="no-break">Alas de Gaviota:</strong> Puertas de apertura vertical que optimizan el embarque.</span></li>
+                        <li><i class="fas fa-check"></i> <strong>Cabina Deslizante:</strong> Visibilidad total y acceso diáfano.</li>
+                        <li><i class="fas fa-check"></i> <strong>Alas de Gaviota:</strong> Puertas verticales para embarque seguro.</li>
                     </ul>
                 </div>
-                
-                <div class="image-stack">
-                    <div class="render-container">
-                        <div class="render-box"><img src="completo1 abierto.JPG" alt="Cabina abierta"></div>
-                        <div class="photo-caption">Sistema de Apertura Deslizante</div>
-                    </div>
-                    <div class="render-container">
-                        <div class="render-box"><img src="completo1trasera-abierto.JPG" alt="Puertas gaviota"></div>
-                        <div class="photo-caption">Diseño de Puertas Alas de Gaviota</div>
-                    </div>
+                <div class="image-container">
+                    <img src="completo1 abierto.JPG">
+                    <p class="photo-label">Sistema de Apertura Deslizante</p>
+                    <img src="completo1trasera-abierto.JPG" style="margin-top: 20px;">
+                    <p class="photo-label">Diseño de Puertas Alas de Gaviota</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Modelo 40 Plazas (Horizon): Reordenado para Móvil -->
-    <section class="content-section">
+    <!-- Modelo 40 Plazas -->
+    <section class="content-block">
         <div class="container">
-            <!-- Contenedor flexible para permitir el orden deseado en móvil -->
-            <div class="feature-grid" style="display: flex; flex-direction: column;">
-                
-                <!-- 1. Texto Inicial -->
-                <div class="feature-text">
+            <div class="feature-grid">
+                <div class="horizon-order-1">
                     <h2>Movilidad Masiva: 40 Plazas</h2>
-                    <p>El modelo <strong>Horizon</strong> traslada nuestra arquitectura de 20 metros al transporte colectivo, superando las barreras tradicionales [3, 4].</p>
+                    <p>El modelo <strong>Horizon</strong> traslada nuestra arquitectura de 20 metros al transporte colectivo.</p>
                 </div>
-
-                <!-- 2. Foto con Pie de Foto (Justo después del texto inicial) -->
-                <div class="render-container" style="margin: 30px 0;">
-                    <div class="render-box" style="height: 380px;">
-                        <img src="Render 40plazas mini.jpg" alt="AEROFIVE Horizon 40 Plazas" style="width: 160%; margin-left: -30%;">
-                    </div>
-                    <div class="photo-caption">AEROFIVE Horizon | 20 Metros - 40 Plazas [2]</div>
+                <div class="image-container horizon-order-2">
+                    <img src="Render 40plazas mini.jpg">
+                    <p class="photo-label">AEROFIVE Horizon | 40 Plazas</p>
                 </div>
-
-                <!-- 3. Resto del texto técnico -->
-                <div class="feature-text">
-                    <h3>El Fin del Aerodeslizador "Indomable"</h3>
-                    <p>A diferencia de los sistemas antiguos, nuestro <strong>Muro de Patentes</strong> garantiza un control digital absoluto, convirtiendo una plataforma compleja en un vehículo dócil.</p>
-                    
-                    <h3>Ventaja Comercial</h3>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-chart-line"></i> <span><strong class="no-break">Ahorro del 25%:</strong> Eficiencia energética inalcanzable mediante la Patente 8.</span></li>
-                        <li><i class="fas fa-leaf"></i> <span><strong class="no-break">Operación Eco-Silenciosa:</strong> Ideal para parques naturales y zonas protegidas.</span></li>
-                    </ul>
+                <div class="horizon-order-3">
+                    <h3>Control Digital Absoluto</h3>
+                    <p>Nuestro <strong>Muro de Patentes</strong> convierte un vehículo complejo en una plataforma dócil y segura.</p>
                 </div>
-
             </div>
         </div>
     </section>
-
-    <div class="container">
-        <section class="muro-summary">
-            <div class="section-title"><h2>El Muro Tecnológico</h2></div>
-            <p>Nuestra ventaja competitiva reside en la integración blindada de <strong>ocho patentes estratégicas</strong>.</p>
-            <a href="muro-tecnologico.html" class="muro-link">EXPLORAR LAS 8 PATENTES PROTEGIDAS →</a>
-        </section>
-    </div>
 
     <div class="footer">
-        <img src="Aerofive logo.png" alt="AEROFIVE Logo" class="logo-small">
-        <p style="font-size: 1.5rem; color: var(--primary); font-weight: 500; margin-bottom: 5px;">Jose Carlos Tarifa Diaz</p>
-        <p>Fundador & CEO AEROFIVE</p>
-        <div class="contact-info">
-            <p><a href="mailto:info@josetarifa.es">info@josetarifa.es</a> | <a href="tel:+34656335105">+34 656 335 105</a></p>
-        </div>
-        <p style="font-size: 0.7rem; margin-top: 50px; opacity: 0.3; letter-spacing: 3px;">Propiedad Intelectual Protegida (P1-P8) | 2026</p>
+        <img src="Aerofive logo.png">
+        <p><strong>Jose Carlos Tarifa Diaz</strong><br>Fundador & CEO AEROFIVE</p>
+        <p><a href="mailto:info@josetarifa.es" class="contact-link">info@josetarifa.es</a> | <a href="tel:+34656335105" class="contact-link">+34 656 335 105</a></p>
     </div>
+
 </body>
 </html>
