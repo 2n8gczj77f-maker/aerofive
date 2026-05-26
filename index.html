@@ -3,137 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AEROFIVE | Seleccione Idioma - 语言选择</title>
-    <!-- Importación de Montserrat para coherencia de marca -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <title>AEROFIVE | Electric Hovercraft Technology Platform</title>
+    <!-- Tipografía técnica y limpia -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #83e31c; /* Verde oficial AEROFIVE */
-            --dark: #1a1a1a;
+            --primary: #83e31c; 
             --white: #ffffff;
+            --dark: #1a1a1a;
+            --gray-text: #444; /* Color oscurecido para mejor legibilidad */
         }
 
-        body {
+        body, html {
+            margin: 0; padding: 0; height: 100%;
             font-family: 'Montserrat', sans-serif;
-            margin: 0;
             background-color: var(--white);
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
             color: var(--dark);
-            text-align: center;
-            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
         }
 
-        /* Logotipo AEROFIVE en el portal */
-        .logo-portal {
-            max-width: 320px;
-            margin-bottom: 3.5rem;
+        /* FONDO TÉCNICO SUTIL */
+        .tech-background {
+            position: fixed; bottom: -5%; right: -5%; width: 60%; height: 60%;
+            background-image: url("completo1.JPG");
+            background-repeat: no-repeat; background-size: contain; background-position: bottom right;
+            filter: grayscale(100%) brightness(1.2) opacity(0.1) blur(5px);
+            z-index: -1; pointer-events: none;
         }
 
-        .portal-container {
-            display: flex;
-            gap: 70px;
-            margin-bottom: 5rem;
+        .main-container {
+            height: 100%; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; text-align: center; padding: 20px;
         }
 
-        .language-option {
-            text-decoration: none;
-            color: var(--dark);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        /* CABECERA: Marca y Plataforma */
+        .brand-block { margin-bottom: 60px; }
+        .logo-main { max-width: 380px; height: auto; margin-bottom: 15px; }
+        .sub-brand {
+            font-size: 1.1rem; letter-spacing: 3px; font-weight: 300;
+            text-transform: uppercase; color: #666;
         }
 
-        .language-option:hover {
-            transform: scale(1.08);
+        /* ACCESOS ESTRATÉGICOS BILINGÜES */
+        .access-grid { display: flex; gap: 30px; width: 100%; max-width: 900px; justify-content: center; }
+
+        .access-card {
+            flex: 1; max-width: 400px; text-decoration: none; color: inherit;
+            border: 1px solid #eee; padding: 40px 20px; border-radius: 8px;
+            background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex; flex-direction: column; align-items: center;
         }
 
-        /* Ajuste de banderas: 90px (75%) y sin halos */
-        .flag-img {
-            width: 90px; 
-            height: auto;
-            border-radius: 4px;
-            box-shadow: none !important;
-            filter: none !important;
-            display: block;
-            margin: 0 auto 18px auto;
+        .access-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(131, 227, 28, 0.15);
+            transform: translateY(-10px);
         }
 
-        .lang-text {
-            font-size: 0.95rem;
-            font-weight: 500;
+        .flag-icon {
+            width: 60px; height: auto; margin-bottom: 20px;
+            border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .access-title { font-weight: 600; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 8px; }
+        .access-subtitle {
+            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--gray-text); font-weight: 400;
+        }
+
+        /* FOOTER CORPORATIVO MEJORADO */
+        .corporate-footer {
+            position: absolute; bottom: 40px; width: 100%;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .corp-email {
+            color: var(--dark); text-decoration: none; font-weight: 400;
+            font-size: 1rem; letter-spacing: 1px; margin-bottom: 15px;
+            border-bottom: 2px solid var(--primary); padding-bottom: 2px;
+        }
+
+        .legal-notice {
+            font-size: 0.8rem; /* Aumentado */
             letter-spacing: 2px;
+            color: #333; /* Color más oscuro para lectura fácil */
+            font-weight: 500;
             text-transform: uppercase;
         }
 
-        /* Sección de contacto ampliada */
-        .contact-info {
-            border-top: 1px solid #eee;
-            padding-top: 2.5rem;
-            width: 100%;
-            max-width: 550px;
-        }
-
-        .ceo-name {
-            font-weight: 500;
-            color: var(--dark);
-            margin-bottom: 6px;
-            font-size: 1.35rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .contact-info p {
-            font-size: 1.15rem;
-            margin: 10px 0;
-            font-weight: 300;
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: opacity 0.3s;
-        }
-
-        .contact-info a:hover {
-            opacity: 0.7;
-        }
-
-        .contact-info i {
-            margin-right: 10px;
-            font-size: 1rem;
+        @media (max-width: 768px) {
+            .access-grid { flex-direction: column; gap: 20px; }
+            .logo-main { max-width: 280px; }
+            .tech-background { width: 100%; height: 40%; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Imagen del Logotipo Oficial -->
-    <img src="Aerofive logo.png" alt="AEROFIVE" class="logo-portal">
+    <div class="tech-background"></div>
 
-    <!-- Selector de Idioma: China a la izquierda, España a la derecha -->
-    <div class="portal-container">
-        <!-- Opción Chino -->
-        <a href="chino.html" class="language-option">
-            <img src="china.png" alt="中文" class="flag-img">
-            <span class="lang-text">中文</span>
-        </a>
+    <div class="main-container">
         
-        <!-- Opción Español -->
-        <a href="espanol.html" class="language-option">
-            <img src="espana.png" alt="Español" class="flag-img">
-            <span class="lang-text">Español</span>
-        </a>
-    </div>
+        <div class="brand-block">
+            <img src="Aerofive%20logo.png" alt="AEROFIVE" class="logo-main">
+            <div class="sub-brand">Plataforma Tecnológica de Hovercraft Eléctrico</div>
+        </div>
 
-    <!-- Información de Contacto Directo -->
-    <div class="contact-info">
-        <p class="ceo-name">Jose Carlos Tarifa Diaz</p>
-        <p>Fundador & CEO AEROFIVE</p>
-        <p><i class="fas fa-envelope"></i> <a href="mailto:info@josetarifa.es">info@josetarifa.es</a></p>
-        <p><i class="fas fa-phone"></i> <a href="tel:+34656335105">+34 656 335 105</a></p>
+        <div class="access-grid">
+            
+            <!-- Acceso CHINA: Texto en Chino -->
+            <a href="chino.html" class="access-card">
+                <img src="https://flagcdn.com/w160/cn.png" class="flag-icon" alt="China">
+                <div class="access-title">CHINA</div>
+                <div class="access-subtitle">工业发展战略</div>
+            </a>
+
+            <!-- Acceso ESPAÑA: Texto en Español -->
+            <a href="espanol.html" class="access-card">
+                <img src="https://flagcdn.com/w160/es.png" class="flag-icon" alt="España">
+                <div class="access-title">ESPAÑA</div>
+                <div class="access-subtitle">Centro de Tecnología e Ingeniería</div>
+            </a>
+
+        </div>
+
+        <div class="corporate-footer">
+            <a href="mailto:info@aerofive.es" class="corp-email">info@aerofive.es</a>
+            <div class="legal-notice">International Industrial Platform | IP Protected P1-P8</div>
+        </div>
+
     </div>
 
 </body>
