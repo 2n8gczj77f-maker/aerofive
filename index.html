@@ -2,16 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AEROFIVE | Electric Hovercraft Technology Platform</title>
-    <!-- Tipografía técnica y limpia -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #83e31c; 
             --white: #ffffff;
             --dark: #1a1a1a;
-            --gray-text: #444; /* Color oscurecido para mejor legibilidad */
+            --gray-text: #444;
         }
 
         body, html {
@@ -19,83 +18,106 @@
             font-family: 'Montserrat', sans-serif;
             background-color: var(--white);
             color: var(--dark);
-            overflow: hidden;
+            overflow-x: hidden;
         }
 
-        /* FONDO TÉCNICO SUTIL */
+        /* FONDO TÉCNICO */
         .tech-background {
             position: fixed; bottom: -5%; right: -5%; width: 60%; height: 60%;
             background-image: url("completo1.JPG");
             background-repeat: no-repeat; background-size: contain; background-position: bottom right;
-            filter: grayscale(100%) brightness(1.2) opacity(0.1) blur(5px);
+            filter: grayscale(100%) brightness(1.2) opacity(0.08) blur(5px);
             z-index: -1; pointer-events: none;
         }
 
         .main-container {
-            height: 100%; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; text-align: center; padding: 20px;
+            min-height: 100vh;
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; 
+            text-align: center; padding: 20px;
+            box-sizing: border-box;
         }
 
-        /* CABECERA: Marca y Plataforma */
-        .brand-block { margin-bottom: 60px; }
-        .logo-main { max-width: 380px; height: auto; margin-bottom: 15px; }
+        /* CABECERA */
+        .brand-block { margin-bottom: 4vh; width: 100%; }
+        .logo-main { max-width: 320px; width: 80%; height: auto; margin-bottom: 10px; }
         .sub-brand {
-            font-size: 1.1rem; letter-spacing: 3px; font-weight: 300;
-            text-transform: uppercase; color: #666;
+            font-size: 0.95rem; letter-spacing: 2px; font-weight: 300;
+            text-transform: uppercase; color: #666; padding: 0 10px;
         }
 
-        /* ACCESOS ESTRATÉGICOS BILINGÜES */
-        .access-grid { display: flex; gap: 30px; width: 100%; max-width: 900px; justify-content: center; }
+        /* GRILLA DE ACCESOS */
+        .access-grid { 
+            display: flex; gap: 20px; width: 100%; 
+            max-width: 850px; justify-content: center; 
+            margin-bottom: 2vh;
+        }
 
         .access-card {
-            flex: 1; max-width: 400px; text-decoration: none; color: inherit;
-            border: 1px solid #eee; padding: 40px 20px; border-radius: 8px;
+            flex: 1; min-width: 260px; text-decoration: none; color: inherit;
+            border: 1px solid #eee; padding: 30px 15px; border-radius: 8px;
             background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            transition: all 0.4s ease;
             display: flex; flex-direction: column; align-items: center;
+            box-sizing: border-box;
         }
 
         .access-card:hover {
             border-color: var(--primary);
-            box-shadow: 0 20px 40px rgba(131, 227, 28, 0.15);
-            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(131, 227, 28, 0.12);
+            transform: translateY(-5px);
         }
 
         .flag-icon {
-            width: 60px; height: auto; margin-bottom: 20px;
-            border-radius: 4px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 50px; height: auto; margin-bottom: 15px;
+            border-radius: 3px; box-shadow: 0 3px 8px rgba(0,0,0,0.1);
         }
 
-        .access-title { font-weight: 600; font-size: 1.4rem; letter-spacing: 2px; margin-bottom: 8px; }
+        .access-title { font-weight: 600; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 5px; }
         .access-subtitle {
-            font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;
+            font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;
             color: var(--gray-text); font-weight: 400;
         }
 
-        /* FOOTER CORPORATIVO MEJORADO */
+        /* FOOTER */
         .corporate-footer {
-            position: absolute; bottom: 40px; width: 100%;
-            display: flex; flex-direction: column; align-items: center;
+            margin-top: auto; padding: 20px 0;
+            width: 100%; display: flex; flex-direction: column; align-items: center;
         }
 
         .corp-email {
             color: var(--dark); text-decoration: none; font-weight: 400;
-            font-size: 1rem; letter-spacing: 1px; margin-bottom: 15px;
+            font-size: 0.95rem; letter-spacing: 1px; margin-bottom: 12px;
             border-bottom: 2px solid var(--primary); padding-bottom: 2px;
         }
 
         .legal-notice {
-            font-size: 0.8rem; /* Aumentado */
-            letter-spacing: 2px;
-            color: #333; /* Color más oscuro para lectura fácil */
-            font-weight: 500;
-            text-transform: uppercase;
+            font-size: 0.75rem; letter-spacing: 2px;
+            color: #333; font-weight: 500; text-transform: uppercase;
         }
 
+        /* AJUSTES ESPECÍFICOS IPHONE 11 / MÓVIL VERTICAL */
         @media (max-width: 768px) {
-            .access-grid { flex-direction: column; gap: 20px; }
-            .logo-main { max-width: 280px; }
-            .tech-background { width: 100%; height: 40%; }
+            .access-grid { flex-direction: column; align-items: center; }
+            .access-card { width: 100%; max-width: 320px; padding: 20px 10px; }
+            .logo-main { max-width: 240px; }
+            .sub-brand { font-size: 0.8rem; }
+        }
+
+        /* AJUSTE IPHONE 11 HORIZONTAL (LANDSCAPE) */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .main-container { justify-content: flex-start; padding-top: 10px; }
+            .brand-block { margin-bottom: 15px; }
+            .logo-main { max-width: 180px; }
+            .sub-brand { font-size: 0.7rem; }
+            .access-grid { flex-direction: row; gap: 15px; margin-bottom: 10px; }
+            .access-card { padding: 12px 10px; min-width: 200px; }
+            .flag-icon { width: 35px; margin-bottom: 8px; }
+            .access-title { font-size: 0.9rem; }
+            .access-subtitle { font-size: 0.65rem; }
+            .corporate-footer { position: static; padding: 10px 0; }
+            .corp-email { font-size: 0.8rem; margin-bottom: 5px; }
+            .legal-notice { font-size: 0.6rem; }
         }
     </style>
 </head>
@@ -112,14 +134,14 @@
 
         <div class="access-grid">
             
-            <!-- Acceso CHINA: Texto en Chino -->
+            <!-- CHINA -->
             <a href="chino.html" class="access-card">
                 <img src="https://flagcdn.com/w160/cn.png" class="flag-icon" alt="China">
                 <div class="access-title">CHINA</div>
                 <div class="access-subtitle">工业发展战略</div>
             </a>
 
-            <!-- Acceso ESPAÑA: Texto en Español -->
+            <!-- ESPAÑA -->
             <a href="espanol.html" class="access-card">
                 <img src="https://flagcdn.com/w160/es.png" class="flag-icon" alt="España">
                 <div class="access-title">ESPAÑA</div>
