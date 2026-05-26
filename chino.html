@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AEROFIVE | 智能电动气垫船平台</title>
-    <!-- Importación de Montserrat: Estilo equilibrado para elegancia técnica -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #2ecc71; 
+            --primary: #83e31c; 
             --dark: #1a1a1a;
-            --light: #fdfdfd;
+            --light: #ffffff;
+            --gray-bg: #f9f9f9;
         }
 
         body { 
@@ -30,21 +30,17 @@
             text-transform: uppercase;
         }
 
-        /* SECCIÓN HERO - IMPACTO VISUAL (Render de Exposición) */
+        /* HERO SECTION SIN RECORTES */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('exposicion hovercraft.png'); 
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .hero img.main-logo { 
-            max-width: 350px; 
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+            background-image: url('exposicion hovercraft.png'); 
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: center top;
+            width: 100%;
+            height: 0;
+            padding-top: 42%; 
+            display: block;
+            background-color: var(--light);
         }
 
         .container { max-width: 1100px; margin: auto; padding: 4rem 2rem; }
@@ -52,102 +48,107 @@
         .section-title { text-align: center; margin-bottom: 4rem; }
         .section-title h2 { 
             font-size: 2rem; 
-            border-bottom: 2px solid var(--primary); 
+            border-bottom: 3px solid var(--primary); 
             display: inline-block; 
             padding-bottom: 12px;
         }
 
-        /* GALERÍA DE MODELOS */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .gallery-item { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .gallery-item img { width: 100%; height: 260px; object-fit: cover; }
         .gallery-caption { padding: 20px; text-align: center; font-weight: 400; font-size: 0.9rem; letter-spacing: 1px; }
 
-        /* SECCIÓN RESUMEN DEL MURO TECNOLÓGICO (技术壁垒) */
         .muro-summary {
             margin-top: 6rem; 
             text-align: center; 
             padding: 4.5rem; 
-            background: #fff; 
+            background: var(--gray-bg); 
             border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 2px solid #eee;
         }
         .muro-summary p { max-width: 850px; margin: 25px auto; color: #555; font-size: 1.05rem; }
         .muro-link { 
-            color: var(--primary); 
+            color: var(--dark); 
             font-weight: 500; 
             text-decoration: none; 
-            border-bottom: 1px solid var(--primary); 
-            padding-bottom: 3px;
+            border: 2px solid var(--primary);
+            padding: 12px 35px;
+            border-radius: 4px;
             transition: 0.3s;
+            display: inline-block;
+            letter-spacing: 1px;
         }
-        .muro-link:hover { opacity: 0.7; }
+        .muro-link:hover { background: var(--primary); color: var(--dark); }
 
-        /* PIE DE PÁGINA INSTITUCIONAL */
+        /* FOOTER CON CONTACTO UNIFICADO */
         .footer { background: #111; color: white; text-align: center; padding: 5rem 2rem; }
-        .footer img.logo-small { max-width: 120px; margin-bottom: 25px; opacity: 0.8; }
+        .footer img.logo-small { max-width: 120px; margin-bottom: 25px; opacity: 0.9; }
         
         .contact-info { margin-top: 25px; }
-        .contact-info a { color: var(--primary); text-decoration: none; margin: 0 15px; font-weight: 400; }
-        .contact-info p { margin: 10px 0; font-size: 0.95rem; }
-        .wechat-tag { color: var(--primary); font-weight: 400; letter-spacing: 1px; margin-top: 15px; display: block; }
+        .contact-info a { color: var(--primary); text-decoration: none; font-weight: 400; }
+        .contact-info p { 
+            margin: 10px 0; 
+            font-size: 1rem; /* Unificado para todos los datos de contacto */
+            font-weight: 300;
+        }
+        .contact-info i { color: var(--primary); margin-right: 8px; width: 20px; }
+        
+        /* Eliminamos el estilo especial grueso del wechat-tag */
+        .wechat-tag {
+            display: block;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Hero Section 核心展示 -->
-    <section class="hero">
-        <img src="Aerofive logo.png" alt="AEROFIVE Logo" class="main-logo">
-    </section>
+    <section class="hero"></section>
 
     <div class="container">
-        <!-- 航空五号 Compact 展示 -->
         <section>
             <div class="section-title">
                 <h2>航空五号 Compact (5座级)</h2>
-                <p>基于共享架构的模块化电动气垫船（全长5.40米）。</p>
+                <p>基于通用底盘的模块化电动气垫船平台。</p>
             </div>
             
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="completo1.JPG" alt="Frontal">
-                    <div class="gallery-caption">AEROFIVE 整体工业设计</div>
+                    <img src="completo1.JPG" alt="Design">
+                    <div class="gallery-caption">模块化智能硬件架构</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="Hovercraft 5 saliendo del agua 2.jpg" alt="Acción">
-                    <div class="gallery-caption">卓越的跨两栖作业能力</div>
+                    <img src="Hovercraft 5 saliendo del agua 2.jpg" alt="Operation">
+                    <div class="gallery-caption">卓越的全地形跨两栖能力</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="completo1trasera.JPG" alt="Trasera">
-                    <div class="gallery-caption">专利 8：流量矢量化技术 (P8)</div>
+                    <img src="completo1trasera.JPG" alt="Technology">
+                    <div class="gallery-caption">专利 8：流量矢量化技术</div>
                 </div>
             </div>
         </section>
 
-        <!-- 技术壁垒摘要 (Muro Tecnológico) -->
         <section class="muro-summary">
             <h2>技术壁垒 (Muro Tecnológico)</h2>
             <p>
-                航空五号平台并非基于单一的孤立创新。我们各项核心专利之间的相互作用产生了一种难以复制的技术架构，不仅保护了关键组件，还确保了车辆的整体集成运行，在中国工业市场中建立了战略性的准入门槛。
+                AEROFIVE 并非单一产品，而是一座知识产权堡垒。八项战略专利保护了从 IA Assist 预测稳定性系统到流量矢量化技术。
             </p>
-            <a href="muro-tecnologico-cn.html" class="muro-link">了解保护品牌的 8 项核心专利 →</a>
+            <a href="muro-tecnologico-cn.html" class="muro-link">了解保护品牌的 8 项专利 →</a>
         </section>
     </div>
 
     <div class="footer">
-        <img src="Aerofive logo.png" alt="AEROFIVE Logo" class="logo-small">
-        <p style="font-size: 1.2rem; color: var(--primary); font-weight: 500;">Jose Carlos Tarifa Diaz</p>
-        <p>AEROFIVE 创始人兼首席执行官</p>
+        <img src="Aerofive logo.png" alt="AEROFIVE" class="logo-small">
+        <p style="font-size: 1.2rem; color: var(--primary); font-weight: 500; margin-bottom: 5px;">Jose Carlos Tarifa Diaz</p>
+        <p>AEROFIVE 创始人兼首席执行官 (CEO)</p>
         
         <div class="contact-info">
             <p><i class="fas fa-envelope"></i> <a href="mailto:info@josetarifa.es">info@josetarifa.es</a></p>
             <p><i class="fas fa-phone"></i> <a href="tel:+34656335105">+34 656 335 105</a></p>
-            <!-- 微信联系方式 (仅限中文页面) -->
-            <p class="wechat-tag"><i class="fab fa-weixin"></i> 微信 (WeChat): <strong>epy3824</strong></p>
+            <!-- WeChat ahora es visualmente igual al resto -->
+            <p class="wechat-tag"><i class="fab fa-weixin"></i> 微信 (WeChat): epy3824</p>
         </div>
 
         <p style="font-size:0.75rem; margin-top:45px; opacity: 0.3; letter-spacing: 3px; text-transform: uppercase;">
-            受法律保护的知识产权 (P1-P8) | 2026
+            中西工业合作项目 | 知识产权受法律保护 (P1-P8) | 2026
         </p>
     </div>
 

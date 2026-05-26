@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AEROFIVE | Smart Electric Hovercraft Platform</title>
-    <!-- Importación de Montserrat: Pesos equilibrados para elegancia y legibilidad -->
+    <!-- Importación de Montserrat: Estilos 300, 400 y 500 para una estética técnica y limpia -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- FontAwesome para iconos de contacto -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #2ecc71; 
+            --primary: #83e31c; /* Verde oficial extraído del logotipo AEROFIVE */
             --dark: #1a1a1a;
-            --light: #fdfdfd;
+            --light: #ffffff;
+            --gray-bg: #f9f9f9;
         }
 
         body { 
@@ -30,21 +32,19 @@
             text-transform: uppercase;
         }
 
-        /* SECCIÓN HERO - IMPACTO VISUAL PRINCIPAL */
+        /* SECCIÓN HERO: AJUSTE PARA IMAGEN RECORTADA SIN CORTES DE ALTURA */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('exposicion hovercraft.png'); 
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 0 20px;
-        }
-        .hero img.main-logo { 
-            max-width: 350px; 
-            height: auto;
-            filter: drop-shadow(0 0 15px rgba(0,0,0,0.5));
+            background-image: url('exposicion hovercraft.png'); 
+            background-size: 100% auto; /* Ajuste de lado a lado */
+            background-repeat: no-repeat;
+            background-position: center top;
+            width: 100%;
+            height: 0;
+            /* El padding-top mantiene la proporción del recorte. 
+               42% es un estándar para imágenes panorámicas; ajusta este valor si ves margen blanco. */
+            padding-top: 42%; 
+            display: block;
+            background-color: var(--light);
         }
 
         .container { max-width: 1100px; margin: auto; padding: 4rem 2rem; }
@@ -52,40 +52,43 @@
         .section-title { text-align: center; margin-bottom: 4rem; }
         .section-title h2 { 
             font-size: 2rem; 
-            border-bottom: 2px solid var(--primary); 
+            border-bottom: 3px solid var(--primary); 
             display: inline-block; 
             padding-bottom: 12px;
         }
 
-        /* GALERÍA DE RENDERIZADOS */
+        /* GALERÍA DE MODELOS COMPACT */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .gallery-item { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
         .gallery-item img { width: 100%; height: 260px; object-fit: cover; }
         .gallery-caption { padding: 20px; text-align: center; font-weight: 400; font-size: 0.9rem; letter-spacing: 1px; }
 
-        /* SECCIÓN RESUMEN DEL MURO TECNOLÓGICO */
+        /* RESUMEN DEL MURO TECNOLÓGICO */
         .muro-summary {
             margin-top: 6rem; 
             text-align: center; 
             padding: 4.5rem; 
-            background: #fff; 
+            background: var(--gray-bg); 
             border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 2px solid #eee;
         }
         .muro-summary p { max-width: 850px; margin: 25px auto; color: #555; font-size: 1.05rem; }
         .muro-link { 
-            color: var(--primary); 
+            color: var(--dark); 
             font-weight: 500; 
             text-decoration: none; 
-            border-bottom: 1px solid var(--primary); 
-            padding-bottom: 3px;
+            border: 2px solid var(--primary); /* Botón con borde reforzado */
+            padding: 12px 35px;
+            border-radius: 4px;
             transition: 0.3s;
+            display: inline-block;
+            letter-spacing: 1px;
         }
-        .muro-link:hover { opacity: 0.7; }
+        .muro-link:hover { background: var(--primary); color: var(--dark); }
 
-        /* PIE DE PÁGINA INSTITUCIONAL */
+        /* PIE DE PÁGINA */
         .footer { background: #111; color: white; text-align: center; padding: 5rem 2rem; }
-        .footer img.logo-small { max-width: 120px; margin-bottom: 25px; opacity: 0.8; }
+        .footer img.logo-small { max-width: 120px; margin-bottom: 25px; opacity: 0.9; }
         
         .contact-info { margin-top: 25px; }
         .contact-info a { color: var(--primary); text-decoration: none; margin: 0 15px; font-weight: 400; }
@@ -94,45 +97,44 @@
 </head>
 <body>
 
-    <!-- Hero Section con Logotipo AEROFIVE -->
-    <section class="hero">
-        <img src="Aerofive logo.png" alt="AEROFIVE Logo" class="main-logo">
-    </section>
+    <!-- Hero Section: Banner limpio con el render de la exposición -->
+    <section class="hero"></section>
 
     <div class="container">
-        <!-- Sección Modelo Compact -->
+        <!-- Sección AEROFIVE Compact -->
         <section>
             <div class="section-title">
                 <h2>AEROFIVE Compact</h2>
-                <p>Ingeniería de precisión en una plataforma eléctrica modular de 5 plazas.</p>
+                <p>Arquitectura eléctrica modular de 5 plazas, diseñada para la máxima eficiencia anfibia [1, 2].</p>
             </div>
             
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="completo1.JPG" alt="Frontal">
-                    <div class="gallery-caption">DISEÑO INTEGRAL AEROFIVE</div>
+                    <img src="completo1.JPG" alt="Diseño Frontal">
+                    <div class="gallery-caption">PLATAFORMA MODULAR INTELIGENTE [3]</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="Hovercraft 5 saliendo del agua 2.jpg" alt="Acción">
-                    <div class="gallery-caption">RENDIMIENTO ANFIBIO REAL</div>
+                    <img src="Hovercraft 5 saliendo del agua 2.jpg" alt="Operación">
+                    <div class="gallery-caption">CAPACIDAD ANFIBIA SUPERIOR [4]</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="completo1trasera.JPG" alt="Trasera">
-                    <div class="gallery-caption">VECTORIZACIÓN DE FLUJO P8</div>
+                    <img src="completo1trasera.JPG" alt="Propulsión">
+                    <div class="gallery-caption">VECTORIZACIÓN DE FLUJO P8 [5]</div>
                 </div>
             </div>
         </section>
 
-        <!-- Sección de Acceso al Muro Tecnológico -->
+        <!-- Sección Informativa: Muro Tecnológico -->
         <section class="muro-summary">
             <h2>Muro Tecnológico</h2>
             <p>
-                Nuestra plataforma está blindada por un portfolio de ocho patentes estratégicas que protegen la arquitectura de control inteligente, creando una barrera competitiva insalvable en el mercado industrial.
+                Nuestra plataforma no es solo un vehículo, es una fortaleza de propiedad intelectual. Ocho patentes estratégicas protegen desde la estabilidad predictiva mediante <strong>IA Assist</strong> hasta la vectorización de flujo que permite un <strong>ahorro energético del 25%</strong> [5, 6].
             </p>
-            <a href="muro-tecnologico.html" class="muro-link">Explorar las 8 patentes que protegen la marca →</a>
+            <a href="muro-tecnologico.html" class="muro-link">Explorar las 8 patentes de la marca →</a>
         </section>
     </div>
 
+    <!-- Contacto del CEO -->
     <div class="footer">
         <img src="Aerofive logo.png" alt="AEROFIVE Logo" class="logo-small">
         <p style="font-size: 1.2rem; color: var(--primary); font-weight: 500;">Jose Carlos Tarifa Diaz</p>
@@ -144,7 +146,7 @@
         </div>
 
         <p style="font-size:0.75rem; margin-top:45px; opacity: 0.3; letter-spacing: 3px; text-transform: uppercase;">
-            Propiedad Intelectual Protegida (P1-P8) | 2026
+            Propiedad Intelectual Protegida (P1-P8) | Proyecto de Cooperación Industrial China-España [7]
         </p>
     </div>
 

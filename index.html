@@ -3,137 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AEROFIVE | Gateway</title>
-    <!-- Importación de Montserrat con pesos más legibles: 400 (Regular) y 500 (Medium) -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+    <title>AEROFIVE | Seleccione Idioma - 语言选择</title>
+    <!-- Importación de Montserrat para coherencia de marca -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary: #2ecc71; 
+            --primary: #83e31c; /* Verde oficial AEROFIVE */
             --dark: #1a1a1a;
             --white: #ffffff;
         }
 
-        body, html { 
-            height: 100%; 
-            margin: 0; 
-            font-family: 'Montserrat', sans-serif; 
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
             background-color: var(--white);
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: var(--dark);
+            text-align: center;
             -webkit-font-smoothing: antialiased;
         }
-        
-        /* Logotipo centralizado según el estilo del Dossier [3] */
-        .logo {
-            max-width: 380px;
-            height: auto;
-            margin-bottom: 70px;
+
+        /* Logotipo AEROFIVE en el portal */
+        .logo-portal {
+            max-width: 320px;
+            margin-bottom: 3.5rem;
         }
 
-        /* Selector de idiomas con banderas [1, 3] */
-        .flag-selector {
+        .portal-container {
             display: flex;
-            gap: 90px;
-            align-items: center;
+            gap: 70px;
+            margin-bottom: 5rem;
         }
 
-        .flag-box {
-            text-align: center;
+        .language-option {
             text-decoration: none;
             color: var(--dark);
-            transition: 0.3s ease;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .flag-box:hover {
-            transform: scale(1.05);
+        .language-option:hover {
+            transform: scale(1.08);
         }
 
-        .flag-box img {
-            width: 150px;
+        /* Ajuste de banderas: 90px (75%) y sin halos */
+        .flag-img {
+            width: 90px; 
             height: auto;
+            border-radius: 4px;
+            box-shadow: none !important;
+            filter: none !important;
             display: block;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-            border: 1px solid #f0f0f0;
+            margin: 0 auto 18px auto;
         }
 
-        .flag-box span {
-            font-size: 0.9rem;
-            font-weight: 500; /* Peso Medium para legibilidad */
-            letter-spacing: 3px;
+        .lang-text {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        /* Footer institucional con contacto */
-        .footer-gate {
-            position: absolute;
-            bottom: 40px;
-            text-align: center;
+        /* Sección de contacto ampliada */
+        .contact-info {
+            border-top: 1px solid #eee;
+            padding-top: 2.5rem;
             width: 100%;
+            max-width: 550px;
         }
 
-        .footer-gate p {
-            font-size: 0.8rem;
-            font-weight: 400; /* Peso Regular */
-            letter-spacing: 3px;
-            margin: 5px 0;
-            color: #555;
+        .ceo-name {
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 6px;
+            font-size: 1.35rem;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .contact-bar {
-            margin-top: 15px;
-            font-size: 0.85rem;
+        .contact-info p {
+            font-size: 1.15rem;
+            margin: 10px 0;
+            font-weight: 300;
         }
 
-        .contact-bar a {
+        .contact-info a {
             color: var(--primary);
             text-decoration: none;
-            margin: 0 15px;
             font-weight: 500;
+            transition: opacity 0.3s;
         }
 
-        .line {
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary);
-            margin: 15px auto;
+        .contact-info a:hover {
+            opacity: 0.7;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            font-size: 1rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- Logotipo Principal AEROFIVE [4] -->
-    <img src="Aerofive logo.png" alt="AEROFIVE" class="logo">
+    <!-- Imagen del Logotipo Oficial -->
+    <img src="Aerofive logo.png" alt="AEROFIVE" class="logo-portal">
 
-    <!-- Selector de Idioma (Banderas China y España) [1, 3] -->
-    <div class="flag-selector">
+    <!-- Selector de Idioma: China a la izquierda, España a la derecha -->
+    <div class="portal-container">
+        <!-- Opción Chino -->
+        <a href="chino.html" class="language-option">
+            <img src="china.png" alt="中文" class="flag-img">
+            <span class="lang-text">中文</span>
+        </a>
         
-        <a href="chino.html" class="flag-box">
-            <img src="china.png" alt="中文版">
-            <span>CHINESE</span>
+        <!-- Opción Español -->
+        <a href="espanol.html" class="language-option">
+            <img src="espana.png" alt="Español" class="flag-img">
+            <span class="lang-text">Español</span>
         </a>
-
-        <a href="espanol.html" class="flag-box">
-            <img src="espana.png" alt="Español">
-            <span>ESPAÑOL</span>
-        </a>
-
     </div>
 
-    <!-- Pie de página con contacto y referencia de cooperación [3] -->
-    <div class="footer-gate">
-        <div class="line"></div>
-        <p>Proyecto de Cooperación Industrial China-España</p>
-        
-        <div class="contact-bar">
-            <a href="mailto:info@josetarifa.es"><i class="fas fa-envelope"></i> info@josetarifa.es</a>
-            <a href="tel:+34656335105"><i class="fas fa-phone"></i> +34 656 335 105</a>
-        </div>
+    <!-- Información de Contacto Directo -->
+    <div class="contact-info">
+        <p class="ceo-name">Jose Carlos Tarifa Diaz</p>
+        <p>Fundador & CEO AEROFIVE</p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:info@josetarifa.es">info@josetarifa.es</a></p>
+        <p><i class="fas fa-phone"></i> <a href="tel:+34656335105">+34 656 335 105</a></p>
     </div>
 
 </body>
