@@ -1,116 +1,78 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AEROFIVE | 智能电动气垫船平台</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #83e31c; 
-            --dark: #1a1a1a;
-            --light: #ffffff;
-            --gray-bg: #f9f9f9;
-        }
+        :root { --primary: #83e31c; --dark: #1a1a1a; --white: #ffffff; --gray-bg: #f9f9f9; }
+        
+        body { font-family: 'Montserrat', "Microsoft YaHei", sans-serif; font-weight: 300; margin: 0; color: var(--dark); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+        h2, h3 { font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
 
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 300; margin: 0; 
-            background-color: var(--light); 
-            color: var(--dark); 
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        h2, h3 { font-weight: 400 !important; letter-spacing: 1px; text-transform: uppercase; }
-
+        /* HERO ADAPTABLE */
         .hero { 
-            background-image: url('exposicion hovercraft.png'); 
-            background-size: 100% auto;
-            background-repeat: no-repeat;
-            background-position: center top;
-            width: 100%; height: 0;
-            padding-top: 42%; 
-            display: block;
-            background-color: var(--light);
+            width: 100%; height: 0; padding-top: 42%;
+            background-image: url("exposicion%20hovercraft.png");
+            background-size: 100% auto; background-repeat: no-repeat; background-position: center top;
+            display: block; background-color: var(--white);
         }
 
-        .container { max-width: 1200px; margin: auto; padding: 4rem 2rem; }
-        
+        @media (max-width: 768px) {
+            .hero { 
+                background-image: url("movil%20portada%20CN.jpg"); 
+                padding-top: 178%; 
+                background-size: contain;
+            }
+        }
+
+        .container { max-width: 1150px; margin: auto; padding: 4rem 2rem; }
         .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { 
-            font-size: 2.2rem; 
-            border-bottom: 4px solid var(--primary); 
-            display: inline-block; 
-            padding-bottom: 12px;
-        }
+        .section-title h2 { border-bottom: 4px solid var(--primary); display: inline-block; padding-bottom: 12px; font-size: 2.2rem; }
 
+        /* 顶部图库 */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .gallery-item { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .gallery-item img { width: 100%; height: 260px; object-fit: cover; }
-        .gallery-caption { padding: 20px; text-align: center; font-weight: 400; font-size: 0.9rem; letter-spacing: 1px; }
+        .gallery-item { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
+        .gallery-item img { width: 100%; height: auto; display: block; }
+        .gallery-caption { padding: 20px; font-weight: 500; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
 
-        .content-section { padding: 8rem 0; border-top: 1px solid #eee; }
-        .bg-gray { background-color: var(--gray-bg); }
-        
-        .feature-grid { 
-            display: grid; 
-            grid-template-columns: 42% 58%; 
-            gap: 60px; 
-            align-items: center; 
-        }
-        
-        .feature-text h2 { margin-bottom: 2rem; font-size: 1.8rem; }
+        /* 内容板块 */
+        .content-block { padding: 8rem 0; border-top: 1px solid #eee; }
+        .bg-gray { background: var(--gray-bg); }
+        .feature-grid { display: grid; grid-template-columns: 42% 58%; gap: 60px; align-items: center; }
+
+        .image-stack { display: flex; flex-direction: column; gap: 40px; }
+        .photo-container { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 1px solid #eee; }
+        .photo-container img { width: 100%; height: auto; display: block; }
+        .photo-caption { background: #fdfdfd; padding: 15px; text-align: center; font-size: 0.8rem; font-weight: 500; color: #666; border-top: 1px solid #f0f0f0; text-transform: uppercase; letter-spacing: 1px; }
+
         .feature-text h3 { color: var(--dark); margin-top: 2.5rem; border-left: 4px solid var(--primary); padding-left: 20px; font-size: 1.1rem; }
-        
         .feature-list { list-style: none; padding: 0; margin-top: 25px; }
-        .feature-list li { margin-bottom: 20px; display: flex; align-items: flex-start; font-size: 1rem; }
-        .feature-list i { color: var(--primary); margin-right: 15px; margin-top: 6px; font-size: 0.9rem; }
+        .feature-list li { margin-bottom: 20px; display: flex; align-items: flex-start; }
+        .feature-list i { color: var(--primary); margin-right: 15px; margin-top: 6px; }
 
-        .no-break { white-space: nowrap; font-weight: 500; color: var(--dark); }
-
-        .render-box { 
-            position: relative; 
-            overflow: hidden; 
-            border-radius: 15px;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-            background: white;
-        }
-        .render-box img { 
-            width: 135%; 
-            margin-left: -17.5%; 
-            display: block;
-            transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .render-box:hover img { transform: scale(1.04); }
-
-        .badge-tech { 
-            background: var(--dark); color: white; padding: 12px 25px; 
-            position: absolute; bottom: 20px; right: 20px; 
-            border-radius: 4px; font-size: 0.7rem; letter-spacing: 2px;
-            z-index: 10;
-        }
-
+        /* 技术壁垒摘要 */
         .muro-summary { text-align: center; padding: 7rem 2rem; }
-        .muro-link { 
-            color: var(--dark); font-weight: 500; text-decoration: none; 
-            border: 2px solid var(--primary); padding: 16px 50px; 
-            border-radius: 4px; transition: 0.3s; display: inline-block; letter-spacing: 2px;
-        }
-        .muro-link:hover { background: var(--primary); box-shadow: 0 10px 20px rgba(131, 227, 28, 0.2); }
+        .muro-link { color: var(--dark); font-weight: 500; text-decoration: none; border: 2px solid var(--primary); padding: 16px 50px; border-radius: 4px; transition: 0.3s; display: inline-block; letter-spacing: 2px; }
+        .muro-link:hover { background: var(--primary); }
 
-        .footer { background: #000; color: white; text-align: center; padding: 6rem 2rem; }
-        .footer img.logo-small { max-width: 150px; margin-bottom: 30px; }
-        .contact-info { margin-top: 25px; font-size: 1.15rem; }
-        .contact-info p { font-weight: 300; margin: 12px 0; }
-        .contact-info a { color: var(--primary); text-decoration: none; font-weight: 500; }
-        .contact-info a:hover { opacity: 0.8; }
-        .footer-legal { font-size: 0.75rem; margin-top: 50px; opacity: 0.4; letter-spacing: 3px; text-transform: uppercase; }
+        /* 企业页脚 */
+        .footer { background: #000; color: #fff; text-align: center; padding: 6rem 2rem; }
+        .footer img { max-width: 180px; margin-bottom: 15px; }
+        .footer .slogan-footer { font-size: 1.1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; font-weight: 300; }
+        .footer .divider { width: 60px; height: 1px; background: var(--primary); margin: 20px auto; opacity: 0.6; }
+        .footer .platform-info { letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; color: #bbb; margin: 5px 0; }
+        .contact-info { margin-top: 30px; }
+        .contact-info a { color: var(--primary); text-decoration: none; font-weight: 500; font-size: 1.1rem; }
+        .footer-legal { font-size: 0.7rem; margin-top: 70px; opacity: 0.3; letter-spacing: 3px; text-transform: uppercase; }
 
-        @media (max-width: 992px) { 
-            .feature-grid { grid-template-columns: 1fr; }
-            .render-box img { width: 100%; margin-left: 0; }
+        @media (max-width: 992px) {
+            .feature-grid { display: flex; flex-direction: column; gap: 40px; }
+            .order-1 { order: 1; }
+            .order-2 { order: 2; }
+            .order-3 { order: 3; }
         }
     </style>
 </head>
@@ -119,59 +81,59 @@
     <section class="hero"></section>
 
     <div class="container">
-        <section>
-            <div class="section-title">
-                <h2>航空五号 Compact</h2>
-                <p>为 5 座级两栖电动出行设计的尖端工程平台。</p>
-            </div>
-            <div class="gallery">
-                <div class="gallery-item"><img src="completo1.JPG" alt="设计"><div class="gallery-caption">模块化架构 P1-P8</div></div>
-                <div class="gallery-item"><img src="Hovercraft 5 saliendo del agua 2.jpg" alt="表现"><div class="gallery-caption">真实环境下的两栖性能</div></div>
-                <div class="gallery-item"><img src="completo1trasera.JPG" alt="技术"><div class="gallery-caption">流量矢量化控制 (P8)</div></div>
-            </div>
-        </section>
+        <div class="section-title"><h2>AEROFIVE Compact</h2><p>为5座级电动两栖移动出行打造的尖端工程技术。</p></div>
+        <div class="gallery">
+            <div class="gallery-item"><img src="completo1.JPG"><div class="gallery-caption">P1-P8 模块化平台</div></div>
+            <div class="gallery-item"><img src="Hovercraft%205%20saliendo%20del%20agua%202.jpg"><div class="gallery-caption">实际环境性能表现</div></div>
+            <div class="gallery-item"><img src="completo1trasera.JPG"><div class="gallery-caption">P8 能源效率</div></div>
+        </div>
     </div>
 
-    <section class="content-section bg-gray">
+    <!-- 创新与准入 -->
+    <section class="content-block bg-gray">
         <div class="container">
             <div class="feature-grid">
                 <div class="feature-text">
-                    <h2>设计创新与高端准入</h2>
-                    <p>AEROFIVE 通过整合美学与卓越功能的工程方案，重新定义了用户体验。</p>
+                    <h2>创新与高端体验</h2>
+                    <p>AEROFIVE通过融合前卫美学与卓越功能的工程方案，重新定义了两栖出行体验。</p>
                     <h3>分布式数字推进系统</h3>
-                    <p>我们的 <strong>专利 3</strong> 用静音电驱动网络取代了嘈杂的机械系统。</p>
-                    <h3>标志性的开启系统</h3>
+                    <p>我们的 <strong>专利 3</strong> 技术以静音的电动推力网络取代了传统吵杂的机械系统，实现了外科手术级的操控精准度 [4, 5]。</p>
+                    <h3>标志性开启系统</h3>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <span><strong class="no-break">滑动式座舱罩：</strong> 顺滑滑动的顶部设计，提供全景视野。</span></li>
-                        <li><i class="fas fa-check"></i> <span><strong class="no-break">鸥翼门：</strong> 垂直开启的后门系统，优化登船体验。</span></li>
+                        <li><i class="fas fa-check"></i> <span><strong>滑动座舱：</strong> 前部顶罩可平滑移动，提供全景视野及宽敞的驾驶舱出入空间 [6]。</span></li>
+                        <li><i class="fas fa-check"></i> <span><strong>鸥翼门：</strong> 垂直开启的机门，优化了在任何表面上的安全登船流程。</span></li>
                     </ul>
                 </div>
-                <div class="image-stack" style="display: flex; flex-direction: column; gap: 30px;">
-                    <div class="render-box"><img src="completo1 abierto.JPG" alt="座舱开启"><div class="badge-tech">滑动开启系统</div></div>
-                    <div class="render-box"><img src="completo1trasera-abierto.JPG" alt="鸥翼门开启"><div class="badge-tech">鸥翼门设计</div></div>
+                <div class="image-stack">
+                    <div class="photo-container"><img src="completo1%20abierto.JPG"><div class="photo-caption">滑动座舱开启系统</div></div>
+                    <div class="photo-container"><img src="completo1trasera-abierto.JPG"><div class="photo-caption">鸥翼门设计</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="content-section">
+    <!-- Horizon 40座板块 -->
+    <section class="content-block">
         <div class="container">
             <div class="feature-grid">
-                <div class="render-box" style="grid-column: 2; grid-row: 1;">
-                    <!-- NOMBRE DE ARCHIVO CORREGIDO: Render con R mayúscula -->
-                    <img src="Render 40plazas mini.jpg" alt="AEROFIVE Horizon 40座" style="width: 140%; margin-left: -20%;">
-                    <div class="badge-tech">航空五号 HORIZON | 20米级</div>
+                <div class="feature-text order-1">
+                    <h2>大众出行：40座级</h2>
+                    <p><strong>AEROFIVE Horizon</strong> 型号将我们20米长的船体架构应用于集体运输，突破了传统气垫船的壁垒 [7, 8]。</p>
                 </div>
-                <div class="feature-text" style="grid-column: 1; grid-row: 1;">
-                    <h2>大规模出行：40座级</h2>
-                    <p><strong>Horizon</strong> 型号将我们的 20 米级架构应用于集体运输，打破了传统气垫船的壁垒。</p>
-                    <h3>终结“难以驾驭”的气垫船时代</h3>
-                    <p>我们的 <strong>技术壁垒（专利墙）</strong> 确保了绝对的数字控制，将复杂的工具转变为安全的平台。</p>
-                    <h3>商业运输优势</h3>
+
+                <div class="photo-container order-2" style="margin: 20px 0;">
+                    <img src="Render%2040plazas%20mini.jpg" alt="AEROFIVE Horizon">
+                    <div class="photo-caption">AEROFIVE Horizon | 20米 - 40座</div>
+                </div>
+
+                <div class="feature-text order-3">
+                    <h3>终结“难以操控”的气垫船历史</h3>
+                    <p>不同于旧式系统，我们的 <strong>专利壁垒</strong> 确保了绝对的数字控制，将复杂的移动载具转化为温顺且安全的平台 [9, 10]。</p>
+                    <h3>商业优势</h3>
                     <ul class="feature-list">
-                        <li><i class="fas fa-chart-line"></i> <span><strong class="no-break">节能 25%：</strong> 流量矢量化专利 8 实现了卓越的能源效率。</span></li>
-                        <li><i class="fas fa-leaf"></i> <span><strong class="no-break">生态静音作业：</strong> 禁止内燃机自然保护区的理想选择。</span></li>
-                        <li><i class="fas fa-couch"></i> <span><strong class="no-break">集成化设计：</strong> 工程团队开发的专用内饰。</span></li>
+                        <li><i class="fas fa-chart-line"></i> <span><strong>节省25%功率：</strong> 专利 8 的流量矢量化技术实现了竞争对手无法企及的能源效率 [3, 11]。</span></li>
+                        <li><i class="fas fa-leaf"></i> <span><span><strong>生态静音运营：</strong> 尤其适用于禁止内燃机使用的自然保护区和受保护区域 [12]。</span></li>
+                        <li><i class="fas fa-couch"></i> <span><strong>集成化设计：</strong> 由我们自有工程团队开发的符合人体工程学的内饰 [13, 14]。</span></li>
                     </ul>
                 </div>
             </div>
@@ -180,20 +142,35 @@
 
     <div class="container">
         <section class="muro-summary">
-            <div class="section-title"><h2>技术壁垒 (Muro Tecnológico)</h2></div>
-            <p>我们的竞争优势不在于单一组件，而在于 <strong>八项战略专利</strong> 的深度整合。</p>
-            <a href="muro-tecnologico-cn.html" class="muro-link">探索受保护的 8 项专利系列 →</a>
+            <div class="section-title"><h2>技术壁垒</h2></div>
+            <p>我们的竞争优势源于 <strong>八项战略专利</strong> 的深度整合保护 [15, 16]。</p>
+            <a href="muro-tecnologico.html" class="muro-link">探索 8 项核心专利 →</a>
         </section>
     </div>
 
-    <div class="footer">
-        <img src="Aerofive logo.png" alt="AEROFIVE Logo" class="logo-small">
-        <p style="font-size: 1.5rem; color: var(--primary); font-weight: 500; margin-bottom: 5px;">Jose Carlos Tarifa Diaz</p>
-        <p style="letter-spacing: 2px; opacity: 0.8;">创始人兼首席执行官 (CEO & Founder)</p>
+    <!-- 企业页脚 -->
+    <footer class="footer">
+        <img src="Aerofive%20logo.png" alt="AEROFIVE">
+        
+        <div class="slogan-footer">大自然启发，科技推动</div>
+        
+        <div class="divider"></div>
+        
+        <p class="platform-info">技术平台</p>
+        <p class="platform-info">卡塔赫纳，西班牙</p>
+        
         <div class="contact-info">
-            <p><a href="mailto:info@josetarifa.es">info@josetarifa.es</a> | <a href="tel:+34656335105">+34 656 335 105</a></p>
+            <p>
+                <a href="mailto:info@aerofive.es">info@aerofive.es</a> 
+                | 
+                <a href="tel:+34656335105">+34 656 335 105</a>
+            </p>
         </div>
-        <p class="footer-legal">知识产权受法律保护 (P1-P8) | 2026</p>
-    </div>
+
+        <p class="footer-legal">
+            知识产权受保护 (P1-P8) | 2026
+        </p>
+    </footer>
+
 </body>
 </html>

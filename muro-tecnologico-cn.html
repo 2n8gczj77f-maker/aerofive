@@ -1,241 +1,230 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AEROFIVE | 技术壁垒 (Muro Tecnológico)</title>
-    <!-- 导入 Montserrat 字体: 字重 300, 400, 500 -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- FontAwesome 图标库 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AEROFIVE | 8项战略专利技术壁垒</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- 专利代表图标 -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary: #83e31c; /* AEROFIVE 官方绿色 */
-            --dark: #1a1a1a;
-            --white: #ffffff;
-            --gray: #f8f9fa;
+        :root { 
+            --primary: #83e31c; 
+            --dark: #1a1a1a; 
+            --white: #ffffff; 
+            --gray-light: #f4f4f4; 
         }
-
+        
         body { 
-            font-family: 'Montserrat', sans-serif; 
-            font-weight: 300; 
-            margin: 0; 
-            background-color: var(--white);
-            color: var(--dark);
+            font-family: 'Montserrat', "Microsoft YaHei", sans-serif; 
+            font-weight: 300; margin: 0; 
+            background: var(--white); 
+            color: var(--dark); 
             line-height: 1.7;
             -webkit-font-smoothing: antialiased;
         }
-
-        /* 页眉设计 */
-        .header-tech {
-            padding: 4rem 2rem;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-        }
-
-        .header-tech img { max-width: 280px; margin-bottom: 2rem; }
         
-        .header-tech h1 { 
+        .container { 
+            max-width: 1000px; 
+            margin: auto; 
+            padding: 6rem 2rem; 
+            box-sizing: border-box;
+        }
+
+        .header { 
+            text-align: center; 
+            margin-bottom: 5rem; 
+        }
+
+        .header h1 { 
             font-weight: 400; 
-            font-size: 2.2rem; 
+            text-transform: uppercase; 
             letter-spacing: 4px; 
-            text-transform: uppercase;
-            margin: 0;
+            border-bottom: 3px solid var(--primary); 
+            display: inline-block; 
+            padding-bottom: 15px;
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
-        .container { max-width: 1100px; margin: auto; padding: 4rem 2rem; }
-
-        .intro-text {
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto 5rem auto;
+        .header p {
             font-size: 1.1rem;
+            color: #666;
+            max-width: 700px;
+            margin: auto;
         }
 
-        /* 专利网格：加厚边框至 2px */
-        .patents-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-            gap: 35px;
+        /* 网格：电脑端2列以对齐8项专利 */
+        .patent-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 30px; 
+            width: 100%;
         }
 
-        .patent-card {
-            padding: 3rem;
-            border: 2px solid var(--primary); /* 加厚边框 */
-            border-radius: 12px;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
+        .patent-card { 
+            padding: 40px 35px; 
+            border: 2px solid var(--primary); 
+            border-radius: 8px; 
+            transition: all 0.4s ease; 
+            background: var(--white); 
+            display: flex; 
             flex-direction: column;
-            align-items: flex-start;
-            background-color: var(--white);
+            box-sizing: border-box;
+            position: relative;
         }
 
-        .patent-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(131, 227, 28, 0.15);
+        .patent-card:hover { 
+            box-shadow: 0 15px 40px rgba(131, 227, 28, 0.15); 
+            transform: translateY(-5px);
         }
 
-        /* 官方绿色图标 */
+        /* 绿色图标 */
         .patent-icon {
+            font-size: 2rem;
             color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
-        .patent-card h3 {
-            font-weight: 500;
-            color: var(--dark);
-            margin-top: 0;
-            border-bottom: 2px solid var(--primary);
-            display: inline-block;
-            padding-bottom: 6px;
-            margin-bottom: 18px;
-            font-size: 1.25rem;
+        /* 专利8背景突出 */
+        .highlight-bg {
+            background: var(--gray-light) !important;
         }
 
-        .patent-tag {
-            font-size: 0.75rem;
+        .patent-badge { 
+            color: var(--primary); 
+            font-weight: 600; 
+            font-size: 0.8rem; 
+            margin-bottom: 5px; 
+            display: block; 
             letter-spacing: 2px;
-            color: #999;
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+        }
+
+        .patent-card h3 { 
+            font-size: 0.95rem; 
+            font-weight: 600; 
+            margin: 0 0 15px 0; 
+            color: var(--dark); 
             text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
         }
 
-        .patent-card p {
-            font-size: 0.95rem;
-            margin-bottom: 0;
-            color: #555;
+        .patent-card p { 
+            font-size: 0.9rem; 
+            color: #555; 
+            margin: 0; 
+            font-weight: 300;
         }
 
-        /* 专利 8 高亮设计（核心竞争力） */
-        .highlight-p8 {
-            background-color: var(--dark);
-            color: white;
-            border: none !important;
-        }
-        .highlight-p8 h3 { color: var(--primary); border-color: var(--primary); }
-        .highlight-p8 p { color: #ccc; }
-        .highlight-p8 .patent-tag { color: var(--primary); }
-        .highlight-p8 .patent-icon { filter: drop-shadow(0 0 10px rgba(131, 227, 28, 0.4)); }
-
-        /* 底部导航与加厚边框按钮 */
-        .footer-nav {
-            text-align: center;
-            padding: 6rem 2rem;
-            background: var(--gray);
-            margin-top: 5rem;
+        .footer-nav { 
+            text-align: center; 
+            margin-top: 6rem; 
         }
 
-        .btn-back {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            border: 2px solid var(--primary); /* 按钮边框加厚 */
-            padding: 16px 45px;
-            letter-spacing: 3px;
-            transition: 0.3s;
-            text-transform: uppercase;
-            font-size: 0.85rem;
+        .btn-back { 
+            text-decoration: none; 
+            color: var(--dark); 
+            border: 2px solid var(--primary); 
+            padding: 18px 50px; 
+            font-weight: 600; 
+            letter-spacing: 2px; 
+            transition: 0.3s; 
             border-radius: 4px;
             display: inline-block;
+            text-transform: uppercase;
+            font-size: 0.9rem;
         }
 
-        .btn-back:hover {
-            background: var(--primary);
-            color: var(--dark);
-            box-shadow: 0 10px 20px rgba(131, 227, 28, 0.3);
+        .btn-back:hover { 
+            background: var(--primary); 
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 4rem 1.5rem; }
+            .patent-grid { grid-template-columns: 1fr; gap: 20px; }
+            .patent-card { padding: 30px 25px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header-tech">
-        <img src="Aerofive logo.png" alt="AEROFIVE Logo">
-        <h1>技术壁垒 (Muro Tecnológico)</h1>
-    </header>
-
     <div class="container">
-        <p class="intro-text">
-            AEROFIVE 的竞争优势源于其<strong>“技术壁垒”</strong>：通过八项战略专利的深度整合，保护了从气垫动态管理到先进流量矢量化的核心架构，在中国工业市场中建立了难以复制的准入门槛 [5-7]。
-        </p>
+        <div class="header">
+            <h1>技术壁垒</h1>
+            <p>由八项战略专利保护的综合动态控制架构，旨在提升安全性与运营效率。</p>
+        </div>
 
-        <div class="patents-grid">
-            
+        <div class="patent-grid">
             <!-- P1 -->
             <div class="patent-card">
-                <i class="fas fa-layer-group patent-icon"></i>
-                <span class="patent-tag">专利 1</span>
+                <div class="patent-icon"><i class="fas fa-arrows-alt-v"></i></div>
+                <span class="patent-badge">专利 01</span>
                 <h3>气垫动态管理系统</h3>
-                <p>根据操作表面动态优化升力压力，显著减少护舷磨损并提高能源效率 [8, 9]。</p>
+                <p>通过电子控制内部压力来优化升力系统，从而提高稳定性和能效 [5, 6]。</p>
             </div>
-
+            
             <!-- P2 -->
             <div class="patent-card">
-                <i class="fas fa-arrows-alt-h patent-icon"></i>
-                <span class="patent-tag">专利 2</span>
-                <h3>主动侧向稳定性系统</h3>
-                <p>智能补偿横风和地形不平整，确保在复杂环境下的航行稳定性 [10, 11]。</p>
+                <div class="patent-icon"><i class="fas fa-balance-scale"></i></div>
+                <span class="patent-badge">专利 02</span>
+                <h3>主动侧向稳定性控制</h3>
+                <p>旨在维持载具在侧风或不规则表面运行条件下的稳定性 [7, 8]。</p>
             </div>
 
             <!-- P3 -->
             <div class="patent-card">
-                <i class="fas fa-bolt patent-icon"></i>
-                <span class="patent-tag">专利 3</span>
-                <h3>分布式电力推进架构</h3>
-                <p>基于多个独立电力单元的推进系统，提升操控精度及模块化功率管理 [8, 12]。</p>
+                <div class="patent-icon"><i class="fas fa-bolt"></i></div>
+                <span class="patent-badge">专利 03</span>
+                <h3>分布式电动推进架构</h3>
+                <p>基于多个电子控制单元的数字推力网络，实现精确操控和静音运行 [9, 10]。</p>
             </div>
 
             <!-- P4 -->
             <div class="patent-card">
-                <i class="fas fa-microchip patent-icon"></i>
-                <span class="patent-tag">专利 4</span>
-                <h3>预测性稳定性 (IA Assist)</h3>
-                <p>利用人工智能算法实时分析数据，在动态不稳定性发生前进行预判与修正 [8, 13]。</p>
+                <div class="patent-icon"><i class="fas fa-brain"></i></div>
+                <span class="patent-badge">专利 04</span>
+                <h3>预测性稳定性系统</h3>
+                <p>通过分析动态行为，在不稳定情况发生前进行预测的先进算法 (IA Assist) [9, 11]。</p>
             </div>
 
             <!-- P5 -->
             <div class="patent-card">
-                <i class="fas fa-stethoscope patent-icon"></i>
-                <span class="patent-tag">专利 5</span>
-                <h3>智能诊断与监控系统</h3>
-                <p>持续监测气垫系统状态，实现异常情况的早期预警并优化预防性维护 [14, 15]。</p>
+                <div class="patent-icon"><i class="fas fa-microscope"></i></div>
+                <span class="patent-badge">专利 05</span>
+                <h3>升力系统动态诊断</h3>
+                <p>实时监测升力系统状态，检测关键部件的异常或退化情况 [12, 13]。</p>
             </div>
 
             <!-- P6 -->
             <div class="patent-card">
-                <i class="fas fa-eye patent-icon"></i>
-                <span class="patent-tag">专利 6</span>
-                <h3>先进视野系统</h3>
-                <p>无需外部机械部件的前窗视野清洁技术，消除了极端环境下机械磨损导致的故障 [14, 16]。</p>
+                <div class="patent-icon"><i class="fas fa-eye"></i></div>
+                <span class="patent-badge">专利 06</span>
+                <h3>先进前向视野系统</h3>
+                <p>无需外部机械元件的视野维护系统，专为复杂海洋环境优化 [12, 14]。</p>
             </div>
 
             <!-- P7 -->
             <div class="patent-card">
-                <i class="fas fa-broadcast-tower patent-icon"></i>
-                <span class="patent-tag">专利 7</span>
-                <h3>远程辅助操作系统</h3>
-                <p>通过安全通信协议与数字控制实现远程监控及操作支持 [14, 17]。</p>
+                <div class="patent-icon"><i class="fas fa-satellite-dish"></i></div>
+                <span class="patent-badge">专利 07</span>
+                <h3>远程操作监管</h3>
+                <p>通过先进的通信与控制技术实现远程专业协助与监管协议 [12, 15]。</p>
             </div>
-
-            <!-- P8 - 核心亮点 -->
-            <div class="patent-card highlight-p8">
-                <i class="fas fa-wind patent-icon"></i>
-                <span class="patent-tag">专利 8</span>
-                <h3>流量矢量化技术</h3>
-                <p>通过几何过渡导管优化推力，预计可实现 <strong>25% 的功率节省</strong>，显著提升续航能力 [2, 4, 18]。</p>
+            
+            <!-- P8: 突出显示 -->
+            <div class="patent-card highlight-bg">
+                <div class="patent-icon"><i class="fas fa-wind"></i></div>
+                <span class="patent-badge">专利 08</span>
+                <h3>先进流量矢量化系统</h3>
+                <p>通过空气动力学优化变换推进流量，实现 **25% 的保证节能效率** [2, 3]。</p>
             </div>
+        </div>
 
+        <div class="footer-nav">
+            <a href="chino.html" class="btn-back">返回 AEROFIVE 平台</a>
         </div>
     </div>
-
-    <nav class="footer-nav">
-        <p style="margin-bottom: 3rem; font-size: 0.8rem; color: #aaa; letter-spacing: 4px; text-transform: uppercase;">
-            © 2026 AEROFIVE - 受法律保护的技术架构 (P1-P8)
-        </p>
-        <a href="chino.html" class="btn-back">返回主控制面板</a>
-    </nav>
 
 </body>
 </html>
