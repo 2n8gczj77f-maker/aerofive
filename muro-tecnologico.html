@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AEROFIVE | Muro Tecnológico de 8 Patentes</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Iconos para representar cada patente -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         :root { 
             --primary: #83e31c; 
@@ -62,13 +64,14 @@
 
         .patent-card { 
             padding: 40px 35px; 
-            border: 2px solid var(--primary); /* TODAS las cajas con línea verde */
+            border: 2px solid var(--primary); 
             border-radius: 8px; 
             transition: all 0.4s ease; 
             background: var(--white); 
             display: flex; 
             flex-direction: column;
             box-sizing: border-box;
+            position: relative;
         }
 
         .patent-card:hover { 
@@ -76,7 +79,13 @@
             transform: translateY(-5px);
         }
 
-        /* RESALTE DE FONDO PARA PATENTE 8 */
+        /* ICONOS VERDES */
+        .patent-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
         .highlight-bg {
             background: var(--gray-light) !important;
         }
@@ -84,8 +93,8 @@
         .patent-badge { 
             color: var(--primary); 
             font-weight: 600; 
-            font-size: 0.9rem; 
-            margin-bottom: 15px; 
+            font-size: 0.8rem; 
+            margin-bottom: 5px; 
             display: block; 
             letter-spacing: 2px;
         }
@@ -146,48 +155,68 @@
         </div>
 
         <div class="patent-grid">
-            <!-- P1 a P7 con borde verde y fondo blanco -->
+            <!-- P1 -->
             <div class="patent-card">
+                <div class="patent-icon"><i class="fas fa-arrows-alt-v"></i></div>
                 <span class="patent-badge">PATENTE 01</span>
-                <h3>Control Activo de Estabilidad Lateral</h3>
-                <p>Tecnología destinada a mantener la estabilidad del vehículo bajo condiciones de viento lateral o superficies irregulares.</p>
-            </div>
-            <div class="patent-card">
-                <span class="patent-badge">PATENTE 02</span>
                 <h3>Gestión Dinámica del Colchón de Aire</h3>
-                <p>Optimización del sistema de sustentación mediante el control electrónico de la presión interna.</p>
-            </div>
-            <div class="patent-card">
-                <span class="patent-badge">PATENTE 03</span>
-                <h3>Propulsión Eléctrica Distribuida</h3>
-                <p>Red de empuje digital basada en múltiples unidades para maniobras quirúrgicas y silencio operativo.</p>
-            </div>
-            <div class="patent-card">
-                <span class="patent-badge">PATENTE 04</span>
-                <h3>Sistema Predictivo de Estabilidad</h3>
-                <p>Algoritmos avanzados (IA Assist) que anticipan situaciones de inestabilidad mediante análisis dinámico.</p>
-            </div>
-            <div class="patent-card">
-                <span class="patent-badge">PATENTE 05</span>
-                <h3>Diagnóstico del Faldón y Colchón</h3>
-                <p>Monitorización en tiempo real para detectar anomalías o degradación en el sistema de sustentación.</p>
-            </div>
-            <div class="patent-card">
-                <span class="patent-badge">PATENTE 06</span>
-                <h3>Visibilidad Frontal Avanzada</h3>
-                <p>Sistema de mantenimiento de visibilidad sin elementos mecánicos externos para entornos complejos.</p>
-            </div>
-            <div class="patent-card">
-                <span class="patent-badge">PATENTE 07</span>
-                <h3>Operación Asistida Remota</h3>
-                <p>Protocolos de supervisión y asistencia profesional a distancia mediante tecnologías de control.</p>
+                <p>Optimización del sistema de sustentación mediante el control electrónico de la presión interna [1, 3].</p>
             </div>
             
-            <!-- P8 con borde verde y FONDO GRIS CLARO -->
+            <!-- P2 -->
+            <div class="patent-card">
+                <div class="patent-icon"><i class="fas fa-balance-scale"></i></div>
+                <span class="patent-badge">PATENTE 02</span>
+                <h3>Control Activo de Estabilidad Lateral</h3>
+                <p>Mantiene la estabilidad del vehículo bajo condiciones de viento lateral o superficies irregulares [1, 4].</p>
+            </div>
+
+            <!-- P3 -->
+            <div class="patent-card">
+                <div class="patent-icon"><i class="fas fa-bolt"></i></div>
+                <span class="patent-badge">PATENTE 03</span>
+                <h3>Propulsión Eléctrica Distribuida</h3>
+                <p>Red de empuje digital basada en múltiples unidades para maniobras quirúrgicas y silencio operativo [1, 3].</p>
+            </div>
+
+            <!-- P4 -->
+            <div class="patent-card">
+                <div class="patent-icon"><i class="fas fa-brain"></i></div>
+                <span class="patent-badge">PATENTE 04</span>
+                <h3>Sistema Predictivo de Estabilidad</h3>
+                <p>Algoritmos avanzados que anticipan situaciones de inestabilidad antes de que ocurran mediante análisis dinámico [3, 5].</p>
+            </div>
+
+            <!-- P5: CAMBIO SOLICITADO -->
+            <div class="patent-card">
+                <div class="patent-icon"><i class="fas fa-microscope"></i></div>
+                <span class="patent-badge">PATENTE 05</span>
+                <h3>Diagnóstico dinámico del sistema de sustentación</h3>
+                <p>Monitorización en tiempo real para detectar anomalías o degradación en los componentes críticos de flotación [2, 5].</p>
+            </div>
+
+            <!-- P6 -->
+            <div class="patent-card">
+                <div class="patent-icon"><i class="fas fa-eye"></i></div>
+                <span class="patent-badge">PATENTE 06</span>
+                <h3>Visibilidad Frontal Avanzada</h3>
+                <p>Mantenimiento de visibilidad sin elementos mecánicos externos para entornos marítimos complejos [2, 5].</p>
+            </div>
+
+            <!-- P7: CAMBIO SOLICITADO -->
+            <div class="patent-card">
+                <div class="patent-icon"><i class="fas fa-satellite-dish"></i></div>
+                <span class="patent-badge">PATENTE 07</span>
+                <h3>Supervisión remota operativa</h3>
+                <p>Protocolos de asistencia profesional a distancia mediante tecnologías avanzadas de comunicación y control [2, 5].</p>
+            </div>
+            
+            <!-- P8: RESALTADA -->
             <div class="patent-card highlight-bg">
+                <div class="patent-icon"><i class="fas fa-wind"></i></div>
                 <span class="patent-badge">PATENTE 08</span>
                 <h3>Vectorización de Flujo Avanzada</h3>
-                <p>Transformación del flujo de aire que permite un <strong>ahorro energético garantizado del 25%</strong>.</p>
+                <p>Transformación del flujo de aire que permite un <strong>ahorro energético garantizado del 25%</strong> [5, 6].</p>
             </div>
         </div>
 
