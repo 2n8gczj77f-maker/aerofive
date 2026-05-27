@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AEROFIVE | Smart Electric Hovercraft Platform</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #83e31c; --dark: #1a1a1a; --white: #ffffff; --gray: #f9f9f9; }
+        :root { --primary: #83e31c; --dark: #1a1a1a; --white: #ffffff; --gray-bg: #f9f9f9; }
         
         body { font-family: 'Montserrat', sans-serif; font-weight: 300; margin: 0; color: var(--dark); line-height: 1.7; -webkit-font-smoothing: antialiased; }
         h2, h3 { font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
@@ -15,14 +15,14 @@
         /* HERO ADAPTABLE */
         .hero { 
             width: 100%; height: 0; padding-top: 42%;
-            background-image: url("exposicion hovercraft.png");
+            background-image: url("exposicion%20hovercraft.png");
             background-size: 100% auto; background-repeat: no-repeat; background-position: center top;
             display: block; background-color: var(--white);
         }
 
         @media (max-width: 768px) {
             .hero { 
-                background-image: url("movil portada ES.jpg"); 
+                background-image: url("movil%20portada%20ES.jpg"); 
                 padding-top: 178%; 
                 background-size: contain;
             }
@@ -32,13 +32,15 @@
         .section-title { text-align: center; margin-bottom: 4rem; }
         .section-title h2 { border-bottom: 4px solid var(--primary); display: inline-block; padding-bottom: 12px; font-size: 2.2rem; }
 
+        /* GALERÍA SUPERIOR */
         .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .gallery-item { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
         .gallery-item img { width: 100%; height: auto; display: block; }
         .gallery-caption { padding: 20px; font-weight: 500; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
 
+        /* SECCIONES DE CONTENIDO */
         .content-block { padding: 8rem 0; border-top: 1px solid #eee; }
-        .bg-gray { background: var(--gray); }
+        .bg-gray { background: var(--gray-bg); }
         .feature-grid { display: grid; grid-template-columns: 42% 58%; gap: 60px; align-items: center; }
 
         .image-stack { display: flex; flex-direction: column; gap: 40px; }
@@ -51,13 +53,20 @@
         .feature-list li { margin-bottom: 20px; display: flex; align-items: flex-start; }
         .feature-list i { color: var(--primary); margin-right: 15px; margin-top: 6px; }
 
+        /* MURO TECNOLÓGICO SUMMARY */
         .muro-summary { text-align: center; padding: 7rem 2rem; }
         .muro-link { color: var(--dark); font-weight: 500; text-decoration: none; border: 2px solid var(--primary); padding: 16px 50px; border-radius: 4px; transition: 0.3s; display: inline-block; letter-spacing: 2px; }
         .muro-link:hover { background: var(--primary); }
 
+        /* PIE DE PÁGINA CORPORATIVO */
         .footer { background: #000; color: #fff; text-align: center; padding: 6rem 2rem; }
-        .footer img { max-width: 150px; margin-bottom: 30px; }
-        .contact-info a { color: var(--primary); text-decoration: none; font-weight: 500; }
+        .footer img { max-width: 180px; margin-bottom: 15px; }
+        .footer .slogan-footer { font-size: 1.1rem; letter-spacing: 1px; opacity: 0.9; margin-bottom: 20px; font-weight: 300; }
+        .footer .divider { width: 60px; height: 1px; background: var(--primary); margin: 20px auto; opacity: 0.6; }
+        .footer .platform-info { letter-spacing: 2px; text-transform: uppercase; font-size: 0.85rem; color: #bbb; margin: 5px 0; }
+        .contact-info { margin-top: 30px; }
+        .contact-info a { color: var(--primary); text-decoration: none; font-weight: 500; font-size: 1.1rem; }
+        .footer-legal { font-size: 0.7rem; margin-top: 70px; opacity: 0.3; letter-spacing: 3px; text-transform: uppercase; }
 
         @media (max-width: 992px) {
             .feature-grid { display: flex; flex-direction: column; gap: 40px; }
@@ -75,12 +84,12 @@
         <div class="section-title"><h2>AEROFIVE Compact</h2><p>Ingeniería de vanguardia para la movilidad eléctrica anfibia de 5 plazas.</p></div>
         <div class="gallery">
             <div class="gallery-item"><img src="completo1.JPG"><div class="gallery-caption">PLATAFORMA MODULAR P1-P8</div></div>
-            <div class="gallery-item"><img src="Hovercraft 5 saliendo del agua 2.jpg"><div class="gallery-caption">DESEMPEÑO EN ENTORNO REAL</div></div>
+            <div class="gallery-item"><img src="Hovercraft%205%20saliendo%20del%20agua%202.jpg"><div class="gallery-caption">DESEMPEÑO EN ENTORNO REAL</div></div>
             <div class="gallery-item"><img src="completo1trasera.JPG"><div class="gallery-caption">EFICIENCIA ENERGÉTICA P8</div></div>
         </div>
     </div>
 
-    <!-- SECCIÓN INNOVACIÓN Y ACCESO -->
+    <!-- Innovación y Acceso -->
     <section class="content-block bg-gray">
         <div class="container">
             <div class="feature-grid">
@@ -88,51 +97,45 @@
                     <h2>Innovación y Acceso Premium</h2>
                     <p>AEROFIVE redefine la experiencia mediante soluciones que integran estética vanguardista y funcionalidad superior.</p>
                     <h3>Propulsión Digital Distribuida</h3>
-                    <p>Nuestra <strong>Patente 3</strong> sustituye los ruidosos sistemas mecánicos tradicionales por una red de empuje eléctrica silenciosa, permitiendo una maniobrabilidad quirúrgica.</p>
+                    <p>Nuestra <strong>Patente 3</strong> sustituye los ruidosos sistemas mecánicos por una red de empuje eléctrica silenciosa.</p>
                     <h3>Sistemas de Apertura Icónicos</h3>
                     <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> <span><strong>Cabina Deslizante:</strong> La cúpula frontal se desplaza para ofrecer una visibilidad panorámica total y un acceso diápano al puesto de mando.</span></li>
-                        <li><i class="fas fa-check"></i> <span><strong>Alas de Gaviota:</strong> Puertas de apertura vertical que optimizan el embarque seguro en cualquier superficie.</span></li>
+                        <li><i class="fas fa-check"></i> <span><strong>Cabina Deslizante:</strong> Cúpula frontal de desplazamiento suave para visibilidad total.</span></li>
+                        <li><i class="fas fa-check"></i> <span><strong>Alas de Gaviota:</strong> Puertas de apertura vertical que optimizan el embarque seguro.</span></li>
                     </ul>
                 </div>
                 <div class="image-stack">
-                    <div class="photo-container"><img src="completo1 abierto.JPG"><div class="photo-caption">Sistema de Apertura Deslizante</div></div>
+                    <div class="photo-container"><img src="completo1%20abierto.JPG"><div class="photo-caption">Sistema de Apertura Deslizante</div></div>
                     <div class="photo-container"><img src="completo1trasera-abierto.JPG"><div class="photo-caption">Diseño de Puertas Alas de Gaviota</div></div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN HORIZON 40: TEXTO COMPLETO RESTAURADO -->
+    <!-- Sección Horizon 40 -->
     <section class="content-block">
         <div class="container">
             <div class="feature-grid">
-                
-                <!-- 1. TEXTO INTRODUCTORIO -->
                 <div class="feature-text order-1">
                     <h2>Movilidad Masiva: 40 Plazas</h2>
-                    <p>El modelo <strong>AEROFIVE Horizon</strong> traslada nuestra arquitectura de 20 metros de eslora al transporte colectivo, superando las barreras de los hovercraft tradicionales [4, 5].</p>
+                    <p>El modelo <strong>AEROFIVE Horizon</strong> traslada nuestra arquitectura de 20 metros al transporte colectivo, superando las barreras de los hovercraft tradicionales.</p>
                 </div>
 
-                <!-- 2. FOTO GRANDE (ORDENADA PARA MÓVIL) -->
                 <div class="photo-container order-2" style="margin: 20px 0;">
-                    <img src="Render 40plazas mini.jpg" alt="AEROFIVE Horizon">
+                    <img src="Render%2040plazas%20mini.jpg" alt="AEROFIVE Horizon">
                     <div class="photo-caption">AEROFIVE Horizon | 20 Metros - 40 Plazas</div>
                 </div>
 
-                <!-- 3. TEXTO TÉCNICO Y VENTAJAS -->
                 <div class="feature-text order-3">
                     <h3>El Fin del Aerodeslizador "Indomable"</h3>
-                    <p>A diferencia de los sistemas antiguos, nuestro <strong>Muro de Patentes</strong> garantiza un control digital absoluto, convirtiendo un vehículo complejo en un vehículo dócil y seguro [6, 7].</p>
-                    
+                    <p>A diferencia de los sistemas antiguos, nuestro <strong>Muro de Patentes</strong> garantiza un control digital absoluto, convirtiendo un vehículo complejo en uno dócil.</p>
                     <h3>Ventaja Comercial</h3>
                     <ul class="feature-list">
-                        <li><i class="fas fa-chart-line"></i> <span><strong>Ahorro del 25%:</strong> La Patente 8 de vectorización permite una eficiencia energética inalcanzable para la competencia [8, 9].</span></li>
-                        <li><i class="fas fa-leaf"></i> <span><strong>Operación Eco-Silenciosa:</strong> Ideal para parques naturales y zonas protegidas donde los motores de combustión están prohibidos [10, 11].</span></li>
-                        <li><i class="fas fa-couch"></i> <span><strong>Diseño Integrado:</strong> Interiores ergonómicos desarrollados por nuestra propia ingeniería [12, 13].</span></li>
+                        <li><i class="fas fa-chart-line"></i> <span><strong>Ahorro del 25%:</strong> La Patente 8 permite una eficiencia energética inalcanzable para la competencia.</span></li>
+                        <li><i class="fas fa-leaf"></i> <span><strong>Operación Eco-Silenciosa:</strong> Ideal para parques naturales y zonas protegidas.</span></li>
+                        <li><i class="fas fa-couch"></i> <span><strong>Diseño Integrado:</strong> Interiores ergonómicos desarrollados por nuestra propia ingeniería.</span></li>
                     </ul>
                 </div>
-
             </div>
         </div>
     </section>
@@ -140,18 +143,34 @@
     <div class="container">
         <section class="muro-summary">
             <div class="section-title"><h2>El Muro Tecnológico</h2></div>
-            <p>Nuestra ventaja competitiva reside en la integración blindada de <strong>ocho patentes estratégicas</strong>, protegiendo desde la estabilidad predictiva hasta el ahorro de potencia [14, 15].</p>
+            <p>Nuestra ventaja competitiva reside en la integración blindada de <strong>ocho patentes estratégicas</strong>.</p>
             <a href="muro-tecnologico.html" class="muro-link">EXPLORAR LAS 8 PATENTES →</a>
         </section>
     </div>
 
-    <div class="footer">
-        <img src="Aerofive logo.png" alt="AEROFIVE">
-        <p><strong>Jose Carlos Tarifa Diaz</strong><br>Fundador & CEO AEROFIVE</p>
+    <!-- PIE DE PÁGINA CORPORATIVO ACTUALIZADO -->
+    <footer class="footer">
+        <img src="Aerofive%20logo.png" alt="AEROFIVE">
+        
+        <div class="slogan-footer">La naturaleza inspira, la tecnología impulsa</div>
+        
+        <div class="divider"></div>
+        
+        <p class="platform-info">Plataforma tecnológica</p>
+        <p class="platform-info">Cartagena, España</p>
+        
         <div class="contact-info">
-            <p><a href="mailto:info@josetarifa.es">info@josetarifa.es</a> | <a href="tel:+34656335105">+34 656 335 105</a></p>
+            <p>
+                <a href="mailto:info@aerofive.es">info@aerofive.es</a> 
+                | 
+                <a href="tel:+34656335105">+34 656 335 105</a>
+            </p>
         </div>
-        <p style="font-size: 0.7rem; margin-top: 50px; opacity: 0.3; letter-spacing: 3px; text-transform: uppercase;">Propiedad Intelectual Protegida (P1-P8) | 2026</p>
-    </div>
+
+        <p class="footer-legal">
+            Propiedad Intelectual Protegida (P1-P8) | 2026
+        </p>
+    </footer>
+
 </body>
 </html>
