@@ -12,8 +12,55 @@
         body { font-family: 'Montserrat', sans-serif; font-weight: 300; margin: 0; color: var(--dark); line-height: 1.7; -webkit-font-smoothing: antialiased; }
         h2, h3 { font-weight: 400; text-transform: uppercase; letter-spacing: 1px; }
 
+        /* NUEVA BARRA DE NAVEGACIÓN (STICKY & FROSTED GLASS) */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(131, 227, 28, 0.2);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .nav-logo img {
+            height: 40px; /* Ajustado para que se vea solo el isotipo/logo */
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
         /* HERO ADAPTABLE */
-        .hero { 
+        .hero {
             width: 100%; height: 0; padding-top: 42%;
             background-image: url("exposicion%20hovercraft.png");
             background-size: 100% auto; background-repeat: no-repeat; background-position: center top;
@@ -21,11 +68,13 @@
         }
 
         @media (max-width: 768px) {
-            .hero { 
-                background-image: url("movil%20portada%20ES.jpg"); 
-                padding-top: 178%; 
+            .hero {
+                background-image: url("movil%20portada%20ES.jpg");
+                padding-top: 178%;
                 background-size: contain;
             }
+            .nav-links { gap: 20px; }
+            .nav-links a { font-size: 0.7rem; letter-spacing: 1px; }
         }
 
         .container { max-width: 1150px; margin: auto; padding: 4rem 2rem; }
@@ -42,12 +91,10 @@
         .content-block { padding: 8rem 0; border-top: 1px solid #eee; }
         .bg-gray { background: var(--gray-bg); }
         .feature-grid { display: grid; grid-template-columns: 42% 58%; gap: 60px; align-items: center; }
-
         .image-stack { display: flex; flex-direction: column; gap: 40px; }
         .photo-container { background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.06); border: 1px solid #eee; }
         .photo-container img { width: 100%; height: auto; display: block; }
         .photo-caption { background: #fdfdfd; padding: 15px; text-align: center; font-size: 0.8rem; font-weight: 500; color: #666; border-top: 1px solid #f0f0f0; text-transform: uppercase; letter-spacing: 1px; }
-
         .feature-text h3 { color: var(--dark); margin-top: 2.5rem; border-left: 4px solid var(--primary); padding-left: 20px; font-size: 1.1rem; }
         .feature-list { list-style: none; padding: 0; margin-top: 25px; }
         .feature-list li { margin-bottom: 20px; display: flex; align-items: flex-start; }
@@ -78,10 +125,27 @@
 </head>
 <body>
 
+    <!-- MENÚ SUPERIOR INCORPORADO -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <!-- Se utiliza el logotipo para volver al index -->
+                <img src="Aerofive%20logo.png" alt="AEROFIVE Logo">
+            </a>
+            <ul class="nav-links">
+                <li><a href="muro-tecnologico.html">Muro Tecnológico</a></li>
+                <li><a href="equipo.html">Liderazgo</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <section class="hero"></section>
 
     <div class="container">
-        <div class="section-title"><h2>AEROFIVE Compact</h2><p>Ingeniería de vanguardia para la movilidad eléctrica anfibia de 5 plazas.</p></div>
+        <div class="section-title">
+            <h2>AEROFIVE Compact</h2>
+            <p>Ingeniería de vanguardia para la movilidad eléctrica anfibia de 5 plazas.</p>
+        </div>
         <div class="gallery">
             <div class="gallery-item"><img src="completo1.JPG"><div class="gallery-caption">PLATAFORMA MODULAR P1-P8</div></div>
             <div class="gallery-item"><img src="Hovercraft%205%20saliendo%20del%20agua%202.jpg"><div class="gallery-caption">DESEMPEÑO EN ENTORNO REAL</div></div>
@@ -120,12 +184,10 @@
                     <h2>Movilidad Masiva: 40 Plazas</h2>
                     <p>El modelo <strong>AEROFIVE Horizon</strong> traslada nuestra arquitectura de 20 metros al transporte colectivo, superando las barreras de los hovercraft tradicionales.</p>
                 </div>
-
                 <div class="photo-container order-2" style="margin: 20px 0;">
                     <img src="Render%2040plazas%20mini.jpg" alt="AEROFIVE Horizon">
                     <div class="photo-caption">AEROFIVE Horizon | 20 Metros - 40 Plazas</div>
                 </div>
-
                 <div class="feature-text order-3">
                     <h3>El Fin del Aerodeslizador "Indomable"</h3>
                     <p>A diferencia de los sistemas antiguos, nuestro <strong>Muro de Patentes</strong> garantiza un control digital absoluto, convirtiendo un vehículo complejo en uno dócil.</p>
@@ -148,28 +210,18 @@
         </section>
     </div>
 
-    <!-- PIE DE PÁGINA CORPORATIVO ACTUALIZADO -->
     <footer class="footer">
         <img src="Aerofive%20logo.png" alt="AEROFIVE">
-        
         <div class="slogan-footer">La naturaleza inspira, la tecnología impulsa</div>
-        
         <div class="divider"></div>
-        
         <p class="platform-info">Plataforma tecnológica</p>
         <p class="platform-info">Cartagena, España</p>
-        
         <div class="contact-info">
             <p>
-                <a href="mailto:info@aerofive.es">info@aerofive.es</a> 
-                | 
-                <a href="tel:+34656335105">+34 656 335 105</a>
+                <a href="mailto:info@aerofive.es">info@aerofive.es</a> | <a href="tel:+34656335105">+34 656 335 105</a>
             </p>
         </div>
-
-        <p class="footer-legal">
-            Propiedad Intelectual Protegida (P1-P8) | 2026
-        </p>
+        <p class="footer-legal">Propiedad Intelectual Protegida (P1-P8) | 2026</p>
     </footer>
 
 </body>
