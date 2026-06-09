@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AEROFIVE | Muro Tecnológico de 8 Patentes</title>
+    
+    <!-- Tipografía Montserrat e Iconos FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
     <style>
         :root {
-            --primary: #83e31c;
+            --primary: #83e31c; /* Verde AEROFIVE */
             --dark: #1a1a1a;
             --white: #ffffff;
             --gray-light: #f4f4f4;
+            --nav-height: 80px;
         }
 
         body {
@@ -23,66 +27,82 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* BARRA DE NAVEGACIÓN SUPERIOR (Coherencia Visual) */
-        .main-nav {
-            position: sticky;
-            top: 0;
-            width: 100%;
+        /* --- NAVEGACIÓN GLOBAL --- */
+        nav {
+            height: var(--nav-height);
+            background: var(--white);
+            border-bottom: 1px solid #eee;
+            position: fixed;
+            top: 0; width: 100%;
             z-index: 1000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(131, 227, 28, 0.2);
-            padding: 10px 0;
         }
 
         .nav-container {
-            max-width: 1150px;
+            max-width: 1200px;
             margin: auto;
+            height: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 0 2rem;
         }
 
-        .nav-logo img {
-            height: 40px;
-            width: auto;
-            display: block;
-        }
+        .logo img { height: 45px; }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 40px;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* Menú Escritorio */
+        .nav-links { display: flex; gap: 30px; }
         .nav-links a {
             text-decoration: none;
             color: var(--dark);
             font-weight: 500;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             transition: 0.3s;
         }
-
         .nav-links a:hover { color: var(--primary); }
 
-        /* ESTILOS ORIGINALES DEL MURO TECNOLÓGICO */
+        /* --- MENÚ HAMBURGUESA (MÓVIL) --- */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--dark);
+            z-index: 1001;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0; right: -100%;
+            width: 80%; height: 100vh;
+            background: var(--white);
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            padding: 100px 40px;
+            gap: 25px;
+            transition: 0.4s ease-in-out;
+            z-index: 999;
+        }
+
+        .mobile-menu.active { right: 0; }
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        /* --- CONTENIDO --- */
         .container {
             max-width: 1000px;
             margin: auto;
-            padding: 4rem 2rem 6rem;
+            padding: calc(var(--nav-height) + 4rem) 2rem 6rem;
             box-sizing: border-box;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 5rem;
-        }
-
+        .header { text-align: center; margin-bottom: 5rem; }
         .header h1 {
             font-weight: 400;
             text-transform: uppercase;
@@ -93,19 +113,13 @@
             font-size: 2rem;
             margin-bottom: 20px;
         }
+        .header p { font-size: 1.1rem; color: #666; max-width: 700px; margin: auto; }
 
-        .header p {
-            font-size: 1.1rem;
-            color: #666;
-            max-width: 700px;
-            margin: auto;
-        }
-
+        /* GRID DE PATENTES */
         .patent-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 30px;
-            width: 100%;
         }
 
         .patent-card {
@@ -116,7 +130,6 @@
             background: var(--white);
             display: flex;
             flex-direction: column;
-            box-sizing: border-box;
             position: relative;
         }
 
@@ -125,16 +138,7 @@
             transform: translateY(-5px);
         }
 
-        .patent-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-
-        .highlight-bg {
-            background: var(--gray-light) !important;
-        }
-
+        .patent-icon { font-size: 2rem; color: var(--primary); margin-bottom: 20px; }
         .patent-badge {
             color: var(--primary);
             font-weight: 600;
@@ -154,18 +158,11 @@
             line-height: 1.4;
         }
 
-        .patent-card p {
-            font-size: 0.9rem;
-            color: #555;
-            margin: 0;
-            font-weight: 300;
-        }
+        .patent-card p { font-size: 0.9rem; color: #555; margin: 0; font-weight: 300; }
+        
+        .highlight-bg { background: var(--gray-light) !important; }
 
-        .footer-nav {
-            text-align: center;
-            margin-top: 6rem;
-        }
-
+        .footer-nav { text-align: center; margin-top: 6rem; }
         .btn-back {
             text-decoration: none;
             color: var(--dark);
@@ -173,44 +170,56 @@
             padding: 18px 50px;
             font-weight: 600;
             letter-spacing: 2px;
-            transition: 0.3s;
             border-radius: 4px;
             display: inline-block;
             text-transform: uppercase;
-            font-size: 0.9rem;
         }
+        .btn-back:hover { background: var(--primary); color: white; }
 
-        .btn-back:hover {
-            background: var(--primary);
-        }
-
+        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
-            .container { padding: 4rem 1.5rem; }
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+            .header h1 { font-size: 1.6rem; }
             .patent-grid { grid-template-columns: 1fr; gap: 20px; }
             .patent-card { padding: 30px 25px; }
-            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <nav class="main-nav">
+    <!-- NAVEGACIÓN -->
+    <nav>
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="Aerofive%20logo.png" alt="AEROFIVE Logo">
+            <a href="espanol.html" class="logo">
+                <img src="Aerofive%20logo.png" alt="AEROFIVE">
             </a>
-            <ul class="nav-links">
-                <li><a href="muro-tecnologico.html">Muro Tecnológico</a></li>
-                <li><a href="equipo.html">Liderazgo</a></li>
-            </ul>
+            
+            <!-- Links Escritorio -->
+            <div class="nav-links">
+                <a href="espanol.html">Inicio</a>
+                <a href="muro-tecnologico.html" style="color: var(--primary);">Patentes</a>
+                <a href="equipo.html">Equipo</a>
+            </div>
+
+            <!-- Icono Hamburguesa -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </nav>
+
+    <!-- Menú Móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="espanol.html" onclick="toggleMenu()">Inicio</a>
+        <a href="muro-tecnologico.html" onclick="toggleMenu()">Patentes</a>
+        <a href="equipo.html" onclick="toggleMenu()">Equipo</a>
+    </div>
 
     <div class="container">
         <div class="header">
             <h1>El Muro Tecnológico</h1>
-            <p>Arquitectura de control dinámico integrada y protegida por ocho patentes estratégicas.</p>
+            <p>Arquitectura de control dinámico integrada y protegida por ocho patentes estratégicas [10-12].</p>
         </div>
 
         <div class="patent-grid">
@@ -219,56 +228,63 @@
                 <div class="patent-icon"><i class="fas fa-arrows-alt-v"></i></div>
                 <span class="patent-badge">PATENTE 01</span>
                 <h3>Gestión Dinámica del Colchón de Aire</h3>
-                <p>Optimización del sistema de sustentación mediante el control electrónico de la presión interna [2].</p>
+                <p>Optimización del sistema de sustentación mediante el control electrónico de la presión interna [10, 13].</p>
             </div>
+            
             <!-- P2 -->
             <div class="patent-card">
                 <div class="patent-icon"><i class="fas fa-balance-scale"></i></div>
                 <span class="patent-badge">PATENTE 02</span>
                 <h3>Control Activo de Estabilidad Lateral</h3>
-                <p>Mantiene la estabilidad del vehículo bajo condiciones de viento lateral o superficies irregulares [4].</p>
+                <p>Mantiene la estabilidad del vehículo bajo condiciones de viento lateral o superficies irregulares [10, 14].</p>
             </div>
+
             <!-- P3 -->
             <div class="patent-card">
                 <div class="patent-icon"><i class="fas fa-bolt"></i></div>
                 <span class="patent-badge">PATENTE 03</span>
                 <h3>Propulsión Eléctrica Distribuida</h3>
-                <p>Red de empuje digital basada en múltiples unidades para maniobras quirúrgicas y silencio operativo [5].</p>
+                <p>Red de empuje digital basada en múltiples unidades para maniobras quirúrgicas y silencio operativo [10, 13, 15].</p>
             </div>
+
             <!-- P4 -->
             <div class="patent-card">
                 <div class="patent-icon"><i class="fas fa-brain"></i></div>
                 <span class="patent-badge">PATENTE 04</span>
                 <h3>Sistema Predictivo de Estabilidad</h3>
-                <p>Algoritmos avanzados que anticipan situaciones de inestabilidad antes de que ocurran mediante análisis dinámico [5].</p>
+                <p>Algoritmos avanzados que anticipan situaciones de inestabilidad antes de que ocurran mediante análisis dinámico [13, 16, 17].</p>
             </div>
+
             <!-- P5 -->
             <div class="patent-card">
                 <div class="patent-icon"><i class="fas fa-microscope"></i></div>
                 <span class="patent-badge">PATENTE 05</span>
                 <h3>Diagnóstico dinámico del sistema de sustentación</h3>
-                <p>Monitorización en tiempo real para detectar anomalías o degradación en los componentes críticos de flotación [6].</p>
+                <p>Monitorización en tiempo real para detectar anomalías o degradación en los componentes críticos de flotación [7, 16, 18].</p>
             </div>
+
             <!-- P6 -->
             <div class="patent-card">
                 <div class="patent-icon"><i class="fas fa-eye"></i></div>
                 <span class="patent-badge">PATENTE 06</span>
                 <h3>Visibilidad Frontal Avanzada</h3>
-                <p>Mantenimiento de visibilidad sin elementos mecánicos externos para entornos marítimos complejos [7].</p>
+                <p>Mantenimiento de visibilidad sin elementos mecánicos externos para entornos marítimos complejos [8, 16, 18].</p>
             </div>
+
             <!-- P7 -->
             <div class="patent-card">
                 <div class="patent-icon"><i class="fas fa-satellite-dish"></i></div>
                 <span class="patent-badge">PATENTE 07</span>
                 <h3>Supervisión remota operativa</h3>
-                <p>Protocolos de asistencia profesional a distancia mediante tecnologías avanzadas de comunicación y control [3].</p>
+                <p>Protocolos de asistencia profesional a distancia mediante tecnologías avanzadas de comunicación y control [9, 16, 18].</p>
             </div>
-            <!-- P8 -->
+
+            <!-- P8: RESALTADA -->
             <div class="patent-card highlight-bg">
-                <div class="patent-icon"><i class="fas fa-wind"></i></div>
-                <span class="patent-badge">PATENTE 08</span>
+                <div class="patent-icon" style="color: #000;"><i class="fas fa-wind"></i></div>
+                <span class="patent-badge" style="color: #000;">PATENTE 08</span>
                 <h3>Vectorización de Flujo Avanzada</h3>
-                <p>Transformación del flujo de aire que permite un <strong>ahorro energético garantizado del 25%</strong> [3].</p>
+                <p>Transformación del flujo de aire que permite un <strong>ahorro energético garantizado del 25%</strong> [9, 16, 19].</p>
             </div>
         </div>
 
@@ -276,6 +292,21 @@
             <a href="espanol.html" class="btn-back">Volver a plataforma AEROFIVE</a>
         </div>
     </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+            const icon = document.querySelector('.hamburger i');
+            if (menu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        }
+    </script>
 
 </body>
 </html>
