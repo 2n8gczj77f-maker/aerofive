@@ -1,171 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>AEROFIVE | Electric Hovercraft Technology Platform</title>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>AEROFIVE | Electric Hovercraft Technology Platform</title>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="75c7595f-3c27-425f-930f-3336334b15b6"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --primary: #83e31c; /* Verde corporativo */
+    --white: #ffffff;
+    --dark: #1a1a1a;
+    --gray-text: #444;
+}
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #83e31c; 
-            --white: #ffffff;
-            --dark: #1a1a1a;
-            --gray-text: #444;
-        }
+body, html {
+    margin: 0; padding: 0; height: 100%;
+    font-family: 'Montserrat', "Microsoft YaHei", sans-serif;
+    background-color: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+}
 
-        body, html {
-            margin: 0; padding: 0; height: 100%;
-            font-family: 'Montserrat', "Microsoft YaHei", sans-serif;
-            background-color: var(--white);
-            color: var(--dark);
-            overflow-x: hidden;
-        }
+/* FONDO TÉCNICO */
+.main-background {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, #ffffff 0%, #f2f4f7 100%);
+    z-index: -2;
+}
 
-        /* FONDO TÉCNICO SUAVE */
-        .main-background {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at center, #ffffff 0%, #f2f4f7 100%);
-            z-index: -2;
-        }
+.tech-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background-image: radial-gradient(#d1d5db 0.5px, transparent 0.5px);
+    background-size: 30px 30px; opacity: 0.3; z-index: -1;
+}
 
-        .tech-overlay {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(#d1d5db 0.5px, transparent 0.5px);
-            background-size: 30px 30px; opacity: 0.3; z-index: -1;
-        }
+.main-container {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; align-items: center;
+    text-align: center; padding: 20px; box-sizing: border-box;
+}
 
-        .main-container {
-            min-height: 100vh; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; 
-            text-align: center; padding: 20px; box-sizing: border-box;
-        }
+/* CABECERA */
+.brand-block { margin-bottom: 4vh; width: 100%; }
+.logo-main { max-width: 320px; width: 80%; height: auto; margin-bottom: 15px; }
+.sub-brand {
+    font-size: 0.95rem; letter-spacing: 2px; font-weight: 300;
+    text-transform: uppercase; color: #555; margin-bottom: 5px;
+}
+.sub-brand-cn {
+    font-size: 1.1rem; letter-spacing: 4px; font-weight: 400;
+    color: var(--primary); opacity: 0.9;
+}
 
-        /* CABECERA BILINGÜE */
-        .brand-block { margin-bottom: 4vh; width: 100%; }
-        .logo-main { max-width: 320px; width: 80%; height: auto; margin-bottom: 15px; }
-        
-        .sub-brand {
-            font-size: 0.95rem; letter-spacing: 2px; font-weight: 300;
-            text-transform: uppercase; color: #555; margin-bottom: 5px;
-        }
-        .sub-brand-cn {
-            font-size: 1.1rem; letter-spacing: 4px; font-weight: 400;
-            color: var(--primary); opacity: 0.9;
-        }
+/* ACCESOS Y EFECTO HOVER */
+.access-grid {
+    display: flex; gap: 20px; width: 100%;
+    max-width: 850px; justify-content: center;
+    margin-bottom: 3vh;
+}
 
-        /* ACCESOS */
-        .access-grid { 
-            display: flex; gap: 20px; width: 100%; 
-            max-width: 850px; justify-content: center; 
-            margin-bottom: 3vh;
-        }
+.access-card {
+    flex: 1; min-width: 260px; text-decoration: none; color: inherit;
+    border: 1px solid rgba(131, 227, 28, 0.3); padding: 35px 15px; border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
+    display: flex; flex-direction: column; align-items: center;
+    box-sizing: border-box;
+}
 
-        .access-card {
-            flex: 1; min-width: 260px; text-decoration: none; color: inherit;
-            border: 1px solid rgba(131, 227, 28, 0.2); padding: 35px 15px; border-radius: 12px;
-            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px);
-            transition: all 0.4s ease; display: flex; flex-direction: column; align-items: center;
-            box-sizing: border-box;
-        }
+/* EFECTO HOVER: Fondo verde y texto blanco */
+.access-card:hover {
+    background: var(--primary);
+    color: var(--white);
+    border-color: var(--primary);
+    box-shadow: 0 15px 35px rgba(131, 227, 28, 0.25);
+    transform: translateY(-5px);
+}
 
-        .access-card:hover {
-            border-color: var(--primary);
-            box-shadow: 0 15px 35px rgba(131, 227, 28, 0.12);
-            transform: translateY(-5px); background: #fff;
-        }
+/* Asegurar que el subtítulo también cambie a blanco en hover */
+.access-card:hover .access-subtitle {
+    color: var(--white);
+}
 
-        .flag-icon {
-            width: 50px; height: auto; margin-bottom: 15px;
-            border-radius: 3px; box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        }
+/* Banderas con borde de 2px más visible */
+.flag-icon {
+    width: 50px; height: auto; margin-bottom: 15px;
+    border-radius: 3px; 
+    border: 2px solid rgba(0,0,0,0.15); 
+    box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+}
 
-        .access-title { font-weight: 600; font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 5px; }
-        .access-subtitle {
-            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
-            color: var(--gray-text); font-weight: 400;
-        }
+.access-title { font-weight: 600; font-size: 1.3rem; letter-spacing: 2px; margin-bottom: 5px; }
 
-        /* FOOTER BILINGÜE */
-        .corporate-footer {
-            margin-top: auto; padding: 20px 0;
-            width: 100%; display: flex; flex-direction: column; align-items: center;
-        }
+.access-subtitle {
+    font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+    color: var(--gray-text); font-weight: 400;
+    transition: color 0.4s ease;
+}
 
-        .corp-email {
-            color: var(--dark); text-decoration: none; font-weight: 500;
-            font-size: 0.95rem; letter-spacing: 1px; margin-bottom: 12px;
-            border-bottom: 2px solid var(--primary); padding-bottom: 2px;
-        }
+/* FOOTER */
+.corporate-footer {
+    margin-top: auto; padding: 20px 0;
+    width: 100%; display: flex; flex-direction: column; align-items: center;
+}
 
-        .legal-notice {
-            font-size: 0.75rem; letter-spacing: 2px;
-            color: #333; font-weight: 500; text-transform: uppercase; margin-bottom: 4px;
-        }
-        .legal-notice-cn {
-            font-size: 0.8rem; letter-spacing: 1px; color: #666; font-weight: 400;
-        }
+/* Correo un 25% más grande */
+.corp-email {
+    color: var(--dark); text-decoration: none; font-weight: 500;
+    font-size: 1.2rem; 
+    letter-spacing: 1px; margin-bottom: 15px;
+    transition: color 0.3s;
+}
+.corp-email:hover { color: var(--primary); }
 
-        /* RESPONSIVO MÓVIL */
-        @media (max-width: 768px) {
-            .access-grid { flex-direction: column; align-items: center; }
-            .access-card { width: 100%; max-width: 320px; padding: 20px 10px; }
-            .logo-main { max-width: 240px; }
-            .sub-brand { font-size: 0.75rem; }
-            .sub-brand-cn { font-size: 0.9rem; }
-        }
+/* Texto inferior en dos líneas y tamaño aumentado */
+.legal-notice {
+    font-size: 1.125rem; 
+    letter-spacing: 2px;
+    color: #333; font-weight: 500; text-transform: uppercase;
+    margin-bottom: 5px;
+}
 
-        /* IPHONE 11 HORIZONTAL */
-        @media (max-height: 500px) and (orientation: landscape) {
-            .main-container { justify-content: flex-start; padding-top: 10px; }
-            .brand-block { margin-bottom: 15px; }
-            .logo-main { max-width: 180px; }
-            .access-grid { flex-direction: row; gap: 15px; margin-bottom: 10px; }
-            .access-card { padding: 12px 10px; min-width: 200px; }
-            .corporate-footer { position: static; padding: 10px 0; }
-        }
-    </style>
+.legal-notice-cn {
+    font-size: 1.2rem; 
+    letter-spacing: 1px; color: #666; font-weight: 400;
+    margin-bottom: 5px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+    .access-grid { flex-direction: column; align-items: center; }
+    .access-card { width: 100%; max-width: 320px; padding: 25px 10px; }
+}
+</style>
 </head>
 <body>
-
-    <div class="main-background"></div>
-    <div class="tech-overlay"></div>
-
-    <div class="main-container">
-        
-        <div class="brand-block">
-            <img src="Aerofive%20logo.png" alt="AEROFIVE" class="logo-main">
-            <div class="sub-brand">Plataforma Tecnológica de Hovercraft Eléctrico</div>
-            <div class="sub-brand-cn">电动气垫船技术平台</div>
-        </div>
-
-        <div class="access-grid">
-            
-            <!-- ACCESO CHINA: Ahora bilingüe -->
-            <a href="chino.html" class="access-card">
-                <img src="https://flagcdn.com/w160/cn.png" class="flag-icon" alt="China">
-                <div class="access-title">中国 (CHINA)</div>
-                <div class="access-subtitle">工业发展战略</div>
-            </a>
-
-            <!-- ACCESO ESPAÑA -->
-            <a href="espanol.html" class="access-card">
-                <img src="https://flagcdn.com/w160/es.png" class="flag-icon" alt="España">
-                <div class="access-title">ESPAÑA</div>
-                <div class="access-subtitle">Centro de Tecnología e Ingeniería</div>
-            </a>
-
-        </div>
-
-        <div class="corporate-footer">
-            <a href="mailto:info@aerofive.es" class="corp-email">info@aerofive.es</a>
-            <div class="legal-notice">International Industrial Platform | IP Protected P1-P8</div>
-            <div class="legal-notice-cn">国际产业平台 | 知识产权受保护 P1-P8</div>
-        </div>
-
+<div class="main-background"></div>
+<div class="tech-overlay"></div>
+<div class="main-container">
+    <div class="brand-block">
+        <img src="Aerofive%20logo.png" alt="AEROFIVE" class="logo-main">
+        <div class="sub-brand">Plataforma Tecnológica de Hovercraft Eléctrico</div>
+        <div class="sub-brand-cn">电动气垫船技术平台</div>
     </div>
 
+    <div class="access-grid">
+        <!-- ACCESO CHINA: Solo nombre en chino -->
+        <a href="chino.html" class="access-card">
+            <img src="https://flagcdn.com/w160/cn.png" class="flag-icon" alt="China">
+            <div class="access-title">中国</div>
+            <div class="access-subtitle">工业发展战略</div>
+        </a>
+
+        <!-- ACCESO ESPAÑA -->
+        <a href="espanol.html" class="access-card">
+            <img src="https://flagcdn.com/w160/es.png" class="flag-icon" alt="España">
+            <div class="access-title">ESPAÑA</div>
+            <div class="access-subtitle">Centro de Tecnología e Ingeniería</div>
+        </a>
+    </div>
+
+    <div class="corporate-footer">
+        <a href="mailto:info@aerofive.es" class="corp-email">info@aerofive.es</a>
+        
+        <!-- Texto inferior en dos líneas (Español) -->
+        <div class="legal-notice">Plataforma Industrial Internacional</div>
+        <div class="legal-notice" style="border-bottom: 2px solid var(--primary); padding-bottom: 2px;">Propiedad Intelectual Protegida P1-P8</div>
+        
+        <!-- Texto inferior en dos líneas (Chino) -->
+        <div class="legal-notice-cn">国际产业平台</div>
+        <div class="legal-notice-cn">知识产权受保护 P1-P8</div>
+    </div>
+</div>
 </body>
 </html>
